@@ -4,7 +4,12 @@
 ![Website](https://img.shields.io/website?url=https%3A%2F%2Forionxer.github.io/crypto)
 ![GitHub License](https://img.shields.io/github/license/orionxer/crypto)
 
-## 声明
+[在线预览](https://orionxer.github.io/crypto/)
+
+每篇笔记都需要举例说明，尽量精简，格式=是什么+为什么+怎么做 What Why How
+
+- [ ] 增加知识图谱预览
+
 > [!NOTE]  
 > 仅供个人用途，整理Crypto相关知识。
 

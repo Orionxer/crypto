@@ -1,7 +1,7 @@
 ---
 title: 待办事项
 date: 2025-01-25 11:21:50
-banner_img: /img/default.png
+banner_img: /images/default.jpg
 ---
 
 
