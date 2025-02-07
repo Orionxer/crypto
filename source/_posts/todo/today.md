@@ -27,12 +27,14 @@ excerpt: 待办列表
 - [ ] bitget
 - [ ] [幻方](https://www.high-flyer.cn/)
 
+![image](/images/todo_common.jpg)
+
 ## 专有名词
 - [ ] 貔貅币
 - [ ] Solana
 - [ ] 空投
 - [ ] 网络
-- [ ] GMGN, {% pdf others/GMGN：从0到1000万美金Meme操作指南.pdf%}
+- [ ] GMGN, [GMGN：从0刀1000万美金Meme操作指南](/crypto/others/GMGN：从0到1000万美金Meme操作指南.pdf)
 - [ ] 质押/流动性质押
 - [ ] CEX/DEX
 - [ ] 代币
