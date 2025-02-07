@@ -34,5 +34,6 @@
         "**/_site/**/*",
         "**/node_modules/**/*",
         "**/scaffolds/**"
-    ]
+    ],
+    "license.year": "auto"
 }
