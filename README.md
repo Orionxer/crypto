@@ -6,7 +6,7 @@
 
 [在线预览](https://orionxer.github.io/crypto/)
 
-每篇笔记都需要举例说明，尽量精简，格式=是什么+为什么+怎么做 What Why How
+每篇笔记都需要举例说明，尽量精简(**What + Why + How**)
 
 - [ ] 增加知识图谱预览
 
