@@ -10,9 +10,8 @@ date: 2025-02-06 17:22:51
 excerpt: 待办列表
 ---
 
-<!-- ![demo](demo.gif) -->
-
 ## 综合
+- [ ] trump 2.0
 - [ ] 一级市场/二级市场
 - [ ] Defi
 - [ ] Web3
@@ -24,13 +23,16 @@ excerpt: 待办列表
 - [ ] [以太坊官网](https://ethereum.org/zh/)
 - [ ] 尝试链上转账
 - [ ] 试用量化机器人，判断可行性
+- [ ] coinbase
+- [ ] bitget
+- [ ] [幻方](https://www.high-flyer.cn/)
 
 ## 专有名词
 - [ ] 貔貅币
 - [ ] Solana
 - [ ] 空投
 - [ ] 网络
-- [ ] GMGN
+- [ ] GMGN, {% pdf others/GMGN：从0到1000万美金Meme操作指南.pdf%}
 - [ ] 质押/流动性质押
 - [ ] CEX/DEX
 - [ ] 代币
@@ -93,6 +95,6 @@ excerpt: 待办列表
 
 ## 其他
 - [ ] 如何发行新币（评估可行性）
-- [ ] Android/IOS 不插卡运行tiktok
+- [x] Android/IOS 不拔卡运行tiktok。已确定不可行，Android拔卡使用，VPN全局代理，系统设置保持地区。
 - [ ] 增加相关书籍
 - [ ] 增加相关PDF
