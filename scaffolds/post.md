@@ -1,5 +1,9 @@
 ---
 title: {{ title }}
 date: {{ date }}
-tags:
+categories:
+- default
+tags: [default]
+banner_img: /images/default.jpg
+index_img: /images/default.jpg
 ---

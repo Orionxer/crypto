@@ -1,8 +1,8 @@
 ﻿---
 title: {{ title }}
 date: {{ date }}
-banner_img: /img/default.png
-index_img: /img/default.png
+banner_img: /images/default.jpg
+index_img: /images/default.jpg
 hide: true
 tags: [todo]
 type: todo
