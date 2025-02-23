@@ -23,12 +23,15 @@ excerpt: 知识地图
 - [ ] 高资金费率，查看欧易历史账单
 - [ ] 深度图
 - [ ] BTC/ETH白皮书
+  - [ ] [比特币白皮书](https://bitcoin.org/files/bitcoin-paper/bitcoin_zh_cn.pdf)，[Bitcoin: A peer-to-Peer Electronic Cash System](https://bitcoin.org/bitcoin.pdf)
+  - [ ] [以太坊白皮书](https://ethereum.org/zh/whitepaper)
 - [ ] [以太坊官网](https://ethereum.org/zh/)
 - [ ] 尝试链上转账
 - [ ] 试用量化机器人，判断可行性
 - [ ] coinbase
 - [ ] bitget
 - [ ] [幻方](https://www.high-flyer.cn/)
+- [ ] PKU学生区块链中心
 
 
 ## 专有名词
