@@ -33,6 +33,7 @@ excerpt: 知识地图
 - [ ] [幻方](https://www.high-flyer.cn/)
 - [ ] ETF是什么
 - [ ] PKU学生区块链中心
+- [ ] kaito空投
 
 
 ## 专有名词
