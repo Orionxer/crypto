@@ -34,6 +34,11 @@ excerpt: 知识地图
 - [ ] ETF是什么
 - [ ] PKU学生区块链中心
 - [ ] kaito空投
+- [ ] 查询交易
+- [ ] 可视化查询交易
+  - [ ] 0xScope
+  - [ ] Arkham visualizer
+- [ ] odin.fun
 
 
 ## 专有名词
