@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>比特币</title>
+    <link href="/crypto/2025/05/06/bitcoin/"/>
+    <url>/crypto/2025/05/06/bitcoin/</url>
+    
+    <content type="html"><![CDATA[<h2 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h2><h2 id="白皮书"><a href="#白皮书" class="headerlink" title="白皮书"></a>白皮书</h2><h2 id="发行总量"><a href="#发行总量" class="headerlink" title="发行总量"></a>发行总量</h2><blockquote><p>精确的比特币的发行总量参考Bitcoin Wiki的<a href="https://en.bitcoin.it/wiki/Controlled_supply">Controlled supply</a>。</p></blockquote><p>比特币自创世区块开始，每10分钟打包一次区块，每次打包产生50个比特币，并且每4年减半(暂时不考虑闰年)，则总量为<br>$$<br>S &#x3D; 50 * 6 * 24 * 365 * 4 * (1+\frac{1}{2}+\frac{1}{4}+\frac{1}{8}+…+\frac{1}{2^n})<br>$$<br>把等比数列用$T$表示<br>$$<br>T&#x3D;1+\frac{1}{2}+\frac{1}{4}+\frac{1}{8}+…+\frac{1}{2^n}<br>$$<br>则将$T$除以2可得<br>$$<br>\frac{T}{2}&#x3D;\frac{1}{2}+\frac{1}{4}+\frac{1}{8}+…+\frac{1}{2^n}+\frac{1}{2^{n+1}}<br>$$<br>两式相减<br>$$<br>T-\frac{T}{2} &#x3D; 1 + \frac{1}{2^{n+1}}<br>$$<br>因为数列收敛的特性，$\frac{1}{2^{n+1}}$忽略，则<br>$$<br>T \approx 2<br>$$<br>带入第一个公式<br>$$<br>S &#x3D; 50 * 6 * 24 * 365 * 4 * (2) &#x3D; 21,024,000<br>$$<br>粗略计算2100万个比特币。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>default</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>default</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>香港券商开户</title>
     <link href="/crypto/2025/04/25/hk-broker/"/>
     <url>/crypto/2025/04/25/hk-broker/</url>
