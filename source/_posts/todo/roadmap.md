@@ -39,6 +39,7 @@ excerpt: 知识地图
   - [ ] 0xScope
   - [ ] Arkham visualizer
 - [ ] odin.fun
+- [ ] [李笑来博客](https://lixiaolai.com/#/)
 
 
 ## 专有名词
