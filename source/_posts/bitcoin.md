@@ -41,3 +41,25 @@ $$
 S \approx 50 \times 6 \times 24 \times 365 \times 4 \times (2) = 21,024,000
 $$
 因此可粗略估算比特币总量约为**2100 万枚**。在所有比特币挖完之后，参与维护的节点（矿工）依然可以平分手续费作为奖励。
+
+## 思维导图
+```mermaid
+mindmap
+  root((mindmap))
+    Origins
+      Long history
+      ::icon(fa fa-book)
+      Popularisation
+        British popular psychology author Tony Buzan
+    Research
+      On effectiveness<br/>and features
+      On Automatic creation
+        Uses
+            Creative techniques
+            Strategic planning
+            Argument mapping
+    Tools
+      Pen and paper
+      Mermaid
+      Block Chain
+```

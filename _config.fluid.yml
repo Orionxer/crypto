@@ -1047,6 +1047,13 @@ links:
     # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo | cusdis | giscus | discuss
     type: disqus
 
+# 增加mermaid流程图
+plugins:
+  mermaid:
+    enable: true
+    version: "11.6.0"
+    options:
+      theme: "default"
 
 #---------------------------
 # 以下是配置 JS CSS 等静态资源的 URL 前缀，可以自定义成 CDN 地址，
@@ -1064,6 +1071,7 @@ static_prefix:
   internal_js: /js
   internal_css: /css
   internal_img: /img
+  mermaid: https://cdn.jsdelivr.net/npm/mermaid@11.6.0/dist/
 
   anchor: https://lib.baomitu.com/anchor-js/4.3.1/
 
@@ -1091,7 +1099,7 @@ static_prefix:
 
   clipboard: https://lib.baomitu.com/clipboard.js/2.0.11/
 
-  mermaid: https://lib.baomitu.com/mermaid/8.14.0/
+  # mermaid: https://lib.baomitu.com/mermaid/8.14.0/
 
   valine: https://lib.baomitu.com/valine/1.5.1/
 
