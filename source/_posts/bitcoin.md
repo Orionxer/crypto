@@ -42,24 +42,20 @@ S \approx 50 \times 6 \times 24 \times 365 \times 4 \times (2) = 21,024,000
 $$
 因此可粗略估算比特币总量约为**2100 万枚**。在所有比特币挖完之后，参与维护的节点（矿工）依然可以平分手续费作为奖励。
 
-## 思维导图
+## 价格走势
+
 ```mermaid
-mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectiveness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
-      Block Chain
+xychart-beta
+    title "Bitcoin Price Trend"
+    x-axis [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]
+    y-axis "Price (in $)" 0.01 --> 109800
+    bar [0, 0.1, 0.5, 5.5, 20.4, 938.8, 218.5, 369.8, 965.5, 10265, 3437, 9349, 33108, 38498, 23125, 42580, 94536]
+    line [0, 0.1, 0.5, 5.5, 20.4, 938.8, 218.5, 369.8, 965.5, 10265, 3437, 9349, 33108, 38498, 23125, 42580, 94536]
 ```
+
+## 披萨
+
+## 参考资料
+[^1]: [比特币历史数据](https://cn.investing.com/crypto/bitcoin/historical-data)
+
+
