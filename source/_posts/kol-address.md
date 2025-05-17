@@ -1,0 +1,104 @@
+---
+title: 链上车头地址
+categories:
+  - default
+tags:
+  - default
+banner_img: /images/default.jpg
+index_img: /images/default.jpg
+date: 2025-05-17 18:06:41
+---
+
+## 车头地址整理
+### 中文KOL
+```sh
+J485YzQjuJPLYoFEYjrjxd7NAoLHTiyUU63JwK7kLxRr: 金狗挖掘机
+9HCTuTPEiQvkUtLmTZvK6uch4E3pDynwJTbNw6jLhp9z: JAMES
+2J2zpzeZX4BL3xQ786JUDi9MmbZg9vbriT84kFbbiwAd: BTCBruce1
+F7KSBM7SVVYUczJTCLpLJFPDEBrmrfi9ZiGru1BzAuwi: 杀破狼
+CdFjn99C4VUjpqayV4fnf2w5JUiF254LJTamkhdwEqqT: 川沐
+3SYQn32YG7XowiCzXKuXqnqBWtFvQDp3WeK36eE8rTEi: 凉粉小刀
+EWkGyhD7XEgzJsutnTmN6qCobBBhMuDukaGXUmMhjM7f: 从零开始的打狗生活
+EUM51CoFuxBw2FUVQ7YmrAy6a3p6PUNwou5S9f8qt83S: 大宇
+HUpPyLU8KWisCAr3mzWy2FKT6uuxQ2qGgJQxyTpDoes5: 0xSun
+Ay9wnuZCRTceZJuRpGZnuwYZuWdsviM4cMiCwFoSQiPH: 冷静
+3jtmKtAVdc1YKVQa8Xp1GaDt4DcdLDURfSTq4qXApF9P: 我是围棋高手
+C8uCFAY8WPwvEudVuQUW62rDHVAjQyVNxcdw5eMZW287: 麻瓜猪皮怪
+BtPuWCTCS8sBHPpAkNbJc5E6RrZkXNdP4EhzkXaB3DsA: 群友小尼
+4LBhsqPTC2fHBST7MCmURRiU1zinWYQWe4G2GtP4wCSM: 子时
+DNfuF1L62WWyW3pNakVkyGGFzVVhj4Yr52jSmdTyeBHm: DNF大号
+71CPXu3TvH3iUKaY1bNkAAow24k6tjH473SsKprQBABC: 王小二
+AmManpABYP2yxskBmt31VSrALjCnTyaEdK8qeSVWLmjs: 专业捡垃圾
+C6173UhKXr1t2tRCnE8QwXRvpHPxYrD79k5v2YteCHX1: 花花
+CVtN7xVV3ed5x6kJfyKL1b57NeLe8BXKoAWzC29D3G8Q: 叶子君
+DCgejkdyFg8MvQjX91WARGU6pLS4ZBu3UQLzvvvawsAt: 公子常
+G1pRtSyKuWSjTqRDcazzKBDzqEF96i1xSURpiXj3yFcc: Crypto D
+2btYi2pqVgtgzLqeAXE122FPhN2xBJMQpE1V9CMNv4EH: 區塊日記
+9hzGkoEhnxpebC23ANKK3LBaNW2ZZcttVpVRY8ZKbkJC: Web第一深情
+EfbbhahGNuhqEraRZXrwETfsaKxScngEttdQixWAW4WE: 搞钱小猫
+D6nUhQ7o3TQwk243mgVS5hsdkuJk71fxZib3KxY4Upyv: 周期手牛牛
+33MuTy5vo3GymDT6rhmA1trYH3ySWcgYa1HSVxD9Tko5: bigroot_eth
+5iYQMMSFKEU1Nkrx5FyBxVnm5Fxa3fYe6rF4Qh2myN9k: 快播王兴
+3JbCsBJbRncrJbwmKYo5ww3uMuRgZ2LkS9LY7pZxu5v1: 女王
+8iFVg3mMe9CaLcS8Gq3bSYEoZPJSN21DPdmuf38U9Q4Z: 五五开
+GQva3CGJNAiBxzPYjNaamHeyQ2shnCmPpwp2bbiRW9K: 宝灵灯
+Gf9XgdmvNHt8fUTFsWAccNbKeyDXsgJyZN8iFJKg5Pbd: 0xuezhang
+6EDaVsS6enYgJ81tmhEkiKFcb4HuzPUVFZeom6PHUqN3: 奶牛
+8gVgczWCy9unAan7m1C91S5UXCAEgXthzVsZhZP49tpo: 灵魂画师
+Dn7NtVTKojUZ8fehX3RmBN2TRgEH6QAmCVR9Ms5P2334: ash
+CNudZYFgpbT26fidsiNrWfHeGTBMMeVWqruZXsEkcUPc: DNF小号
+```
+
+### 英文KOL
+```sh
+5B52w1ZW9tuwUduueP5J7HXz5AcGfruGoX6YoAudvyxG: Yennii56
+3h65MmPZksoKKyEpEjnWU2Yk2iYT5oZDNitGy5cTaxoE: jidn_w
+DfMxre4cKmvogbLrPigxmibVTTQDuzjdXojWzjCXXhzj: Euris_JT
+GfXQesPe3Zuwg8JhAt6Cg8euJDTVx751enp9EQQmhzPH: spunosounds
+2CXbN6nuTTb4vCrtYM89SfQHMMKGPAW4mvFe6Ht4Yo6z: 小胖moneymaykah
+8yJFWmVTQq69p6VJxGwpzW7ii7c5J9GRAtHCNMMQPydj: LexaproTrader
+FbvUU5qvD9JsU9jp3KDweCpZiVZHLoQBQ1PPCAAbd6FB: profitierr
+73LnJ7G9ffBDjEBGgJDdgvLUhD5APLonKrNiHsKDCw5B: waddles_eth
+6LChaYRYtEYjLEHhzo4HdEmgNwu2aia8CM8VhR9wn6n7: Assasin
+AbcX4XBm7DJ3i9p29i6sU8WLmiW4FWY5tiwB9D6UBbcE: 404flipped
+8zFZHuSRuDpuAR7J6FzwyF3vKNx4CVW3DFHJerQhc7Zd: traderpow
+2kPeDbVHZL9bHjDx5g3fGcnx6KvExKcEn8tmA1sSXct6: 0x8i11i0n
+3kebnKw7cPdSkLRfiMEALyZJGZ4wdiSRvmoN4rD1yPzV: BastilleBtc
+4DdrfiDHpmx55i4SPssxVzS9ZaKLb8qr45NKY9Er9nNh: 黄青蛙TheMisterFrog
+86AEJExyjeNNgcp7GrAvCXTDicf5aGWgoERbXFiG1EdD: publixplays
+5R4RJojpoKNwBcJNgVYGtwXdmhyEHWXGDBQqUnSpLfcW: 山羊开发AndyAyrey
+EnQLCLB7NWojruXXNopgH7jhkwoHihTpuzsrtsM2UCSe: Adam_JAE
+26kZ9rg8Y5pd4j1tdT4cbT8BQRu5uDbXkaVs3L5QasHy: orangie
+7SDs3PjT2mswKQ7Zo4FTucn9gJdtuW4jaacPA65BseHS: insentos
+F5jWYuiDLTiaLYa54D88YbpXgEsA6NKHzWy4SN4bMYjt: mercularx
+5rkPDK4JnVAumgzeV2Zu8vjggMTtHdDtrsd5o9dhGZHD: Dave Portnoy
+2aDBRNNdGEnCq2Av6Wz447CqgdEbmEaDudfGW1M85MAC: 狗币开发BillyM2k
+DpNVrtA3ERfKzX4F8Pi2CVykdJJjoNxyY5QgoytAwD26: gorillacapsol
+```
+
+### 内幕地址
+```sh
+FZVdsFTRTWwZEy6XC5GCtHNWdcAwiQtAeJ2NSpH6cQNz:0xMoco
+D4FTjsFmPTVewiBnmDk6yBy1b6Wi1pXnTQfeRGh9HR1j:赚了600k
+9PbDd9ikzTgLyC3uSHDVqHm5apce5fjtY2ms45UcA9sJ:D群小黑人
+E4BdAz8TmRZRXRR1JBhpkxYRBnspNeyznttm6U6xPdVJ:赚了800k
+8yJFWmVTQq69p6VJxGwpzW7ii7c5J9GRAtHCNMMQPydj:赚了4m
+2huXTbjeBhtMZ1ugNwUGucYBRasRaaiypymUX6P1Kwjx:赚了9m
+A4DCAjDwkq5jYhNoZ5Xn2NbkTLimARkerVv81w2dhXgL:赚了3m
+HyNiuntjo51d5paTG7rX5XLLAAi68GQMN1STwSmvna4F:赚了800k
+```
+
+### 波段选手
+```sh
+JD38n7ynKYcgPpF7k1BhXEeREu1KqptU93fVGy3S624k:做市强庄 后期
+j1oeQoPeuEDmjvyMwBmCWexzCQup77kbKKxV59CnYbd:实力热点价值选手
+3SYQn32YG7XowiCzXKuXqnqBWtFvQDp3WeK36eE8rTEi:中期趋势选手
+7zenhRwrPi61L2S9SL8VDj88X7oEfese7Mj8WdStxyac:龙头波段巨鲸
+8zFZHuSRuDpuAR7J6FzwyF3vKNx4CVW3DFHJerQhc7Zd:中线选手 大亏大赚
+5bwjwWtTV8ymJCH9GFDtVrEq1zza8Fz1hVec2NwPcFqP:群友 出手少 稳健
+CNudZYFgpbT26fidsiNrWfHeGTBMMeVWqruZXsEkcUPc:内幕玩家
+HABhDh9zrzf8mA4SBo1yro8M6AirH2hZdLNPpuvMH6iA:追车达人
+```
+
+## 参考
+[^1]: [一文告诉你目前最热门的扫链工具Axiom怎么用](https://x.com/0xadai/status/1913907462278909957)
