@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>链上车头地址</title>
+    <link href="/crypto/2025/05/17/kol-address/"/>
+    <url>/crypto/2025/05/17/kol-address/</url>
+    
+    <content type="html"><![CDATA[<h2 id="车头地址整理"><a href="#车头地址整理" class="headerlink" title="车头地址整理"></a>车头地址整理</h2><h3 id="中文KOL"><a href="#中文KOL" class="headerlink" title="中文KOL"></a>中文KOL</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs sh">J485YzQjuJPLYoFEYjrjxd7NAoLHTiyUU63JwK7kLxRr: 金狗挖掘机<br>9HCTuTPEiQvkUtLmTZvK6uch4E3pDynwJTbNw6jLhp9z: JAMES<br>2J2zpzeZX4BL3xQ786JUDi9MmbZg9vbriT84kFbbiwAd: BTCBruce1<br>F7KSBM7SVVYUczJTCLpLJFPDEBrmrfi9ZiGru1BzAuwi: 杀破狼<br>CdFjn99C4VUjpqayV4fnf2w5JUiF254LJTamkhdwEqqT: 川沐<br>3SYQn32YG7XowiCzXKuXqnqBWtFvQDp3WeK36eE8rTEi: 凉粉小刀<br>EWkGyhD7XEgzJsutnTmN6qCobBBhMuDukaGXUmMhjM7f: 从零开始的打狗生活<br>EUM51CoFuxBw2FUVQ7YmrAy6a3p6PUNwou5S9f8qt83S: 大宇<br>HUpPyLU8KWisCAr3mzWy2FKT6uuxQ2qGgJQxyTpDoes5: 0xSun<br>Ay9wnuZCRTceZJuRpGZnuwYZuWdsviM4cMiCwFoSQiPH: 冷静<br>3jtmKtAVdc1YKVQa8Xp1GaDt4DcdLDURfSTq4qXApF9P: 我是围棋高手<br>C8uCFAY8WPwvEudVuQUW62rDHVAjQyVNxcdw5eMZW287: 麻瓜猪皮怪<br>BtPuWCTCS8sBHPpAkNbJc5E6RrZkXNdP4EhzkXaB3DsA: 群友小尼<br>4LBhsqPTC2fHBST7MCmURRiU1zinWYQWe4G2GtP4wCSM: 子时<br>DNfuF1L62WWyW3pNakVkyGGFzVVhj4Yr52jSmdTyeBHm: DNF大号<br>71CPXu3TvH3iUKaY1bNkAAow24k6tjH473SsKprQBABC: 王小二<br>AmManpABYP2yxskBmt31VSrALjCnTyaEdK8qeSVWLmjs: 专业捡垃圾<br>C6173UhKXr1t2tRCnE8QwXRvpHPxYrD79k5v2YteCHX1: 花花<br>CVtN7xVV3ed5x6kJfyKL1b57NeLe8BXKoAWzC29D3G8Q: 叶子君<br>DCgejkdyFg8MvQjX91WARGU6pLS4ZBu3UQLzvvvawsAt: 公子常<br>G1pRtSyKuWSjTqRDcazzKBDzqEF96i1xSURpiXj3yFcc: Crypto D<br>2btYi2pqVgtgzLqeAXE122FPhN2xBJMQpE1V9CMNv4EH: 區塊日記<br>9hzGkoEhnxpebC23ANKK3LBaNW2ZZcttVpVRY8ZKbkJC: Web第一深情<br>EfbbhahGNuhqEraRZXrwETfsaKxScngEttdQixWAW4WE: 搞钱小猫<br>D6nUhQ7o3TQwk243mgVS5hsdkuJk71fxZib3KxY4Upyv: 周期手牛牛<br>33MuTy5vo3GymDT6rhmA1trYH3ySWcgYa1HSVxD9Tko5: bigroot_eth<br>5iYQMMSFKEU1Nkrx5FyBxVnm5Fxa3fYe6rF4Qh2myN9k: 快播王兴<br>3JbCsBJbRncrJbwmKYo5ww3uMuRgZ2LkS9LY7pZxu5v1: 女王<br>8iFVg3mMe9CaLcS8Gq3bSYEoZPJSN21DPdmuf38U9Q4Z: 五五开<br>GQva3CGJNAiBxzPYjNaamHeyQ2shnCmPpwp2bbiRW9K: 宝灵灯<br>Gf9XgdmvNHt8fUTFsWAccNbKeyDXsgJyZN8iFJKg5Pbd: 0xuezhang<br>6EDaVsS6enYgJ81tmhEkiKFcb4HuzPUVFZeom6PHUqN3: 奶牛<br>8gVgczWCy9unAan7m1C91S5UXCAEgXthzVsZhZP49tpo: 灵魂画师<br>Dn7NtVTKojUZ8fehX3RmBN2TRgEH6QAmCVR9Ms5P2334: ash<br>CNudZYFgpbT26fidsiNrWfHeGTBMMeVWqruZXsEkcUPc: DNF小号<br></code></pre></td></tr></table></figure><h3 id="英文KOL"><a href="#英文KOL" class="headerlink" title="英文KOL"></a>英文KOL</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs sh">5B52w1ZW9tuwUduueP5J7HXz5AcGfruGoX6YoAudvyxG: Yennii56<br>3h65MmPZksoKKyEpEjnWU2Yk2iYT5oZDNitGy5cTaxoE: jidn_w<br>DfMxre4cKmvogbLrPigxmibVTTQDuzjdXojWzjCXXhzj: Euris_JT<br>GfXQesPe3Zuwg8JhAt6Cg8euJDTVx751enp9EQQmhzPH: spunosounds<br>2CXbN6nuTTb4vCrtYM89SfQHMMKGPAW4mvFe6Ht4Yo6z: 小胖moneymaykah<br>8yJFWmVTQq69p6VJxGwpzW7ii7c5J9GRAtHCNMMQPydj: LexaproTrader<br>FbvUU5qvD9JsU9jp3KDweCpZiVZHLoQBQ1PPCAAbd6FB: profitierr<br>73LnJ7G9ffBDjEBGgJDdgvLUhD5APLonKrNiHsKDCw5B: waddles_eth<br>6LChaYRYtEYjLEHhzo4HdEmgNwu2aia8CM8VhR9wn6n7: Assasin<br>AbcX4XBm7DJ3i9p29i6sU8WLmiW4FWY5tiwB9D6UBbcE: 404flipped<br>8zFZHuSRuDpuAR7J6FzwyF3vKNx4CVW3DFHJerQhc7Zd: traderpow<br>2kPeDbVHZL9bHjDx5g3fGcnx6KvExKcEn8tmA1sSXct6: 0x8i11i0n<br>3kebnKw7cPdSkLRfiMEALyZJGZ4wdiSRvmoN4rD1yPzV: BastilleBtc<br>4DdrfiDHpmx55i4SPssxVzS9ZaKLb8qr45NKY9Er9nNh: 黄青蛙TheMisterFrog<br>86AEJExyjeNNgcp7GrAvCXTDicf5aGWgoERbXFiG1EdD: publixplays<br>5R4RJojpoKNwBcJNgVYGtwXdmhyEHWXGDBQqUnSpLfcW: 山羊开发AndyAyrey<br>EnQLCLB7NWojruXXNopgH7jhkwoHihTpuzsrtsM2UCSe: Adam_JAE<br>26kZ9rg8Y5pd4j1tdT4cbT8BQRu5uDbXkaVs3L5QasHy: orangie<br>7SDs3PjT2mswKQ7Zo4FTucn9gJdtuW4jaacPA65BseHS: insentos<br>F5jWYuiDLTiaLYa54D88YbpXgEsA6NKHzWy4SN4bMYjt: mercularx<br>5rkPDK4JnVAumgzeV2Zu8vjggMTtHdDtrsd5o9dhGZHD: Dave Portnoy<br>2aDBRNNdGEnCq2Av6Wz447CqgdEbmEaDudfGW1M85MAC: 狗币开发BillyM2k<br>DpNVrtA3ERfKzX4F8Pi2CVykdJJjoNxyY5QgoytAwD26: gorillacapsol<br></code></pre></td></tr></table></figure><h3 id="内幕地址"><a href="#内幕地址" class="headerlink" title="内幕地址"></a>内幕地址</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sh">FZVdsFTRTWwZEy6XC5GCtHNWdcAwiQtAeJ2NSpH6cQNz:0xMoco<br>D4FTjsFmPTVewiBnmDk6yBy1b6Wi1pXnTQfeRGh9HR1j:赚了600k<br>9PbDd9ikzTgLyC3uSHDVqHm5apce5fjtY2ms45UcA9sJ:D群小黑人<br>E4BdAz8TmRZRXRR1JBhpkxYRBnspNeyznttm6U6xPdVJ:赚了800k<br>8yJFWmVTQq69p6VJxGwpzW7ii7c5J9GRAtHCNMMQPydj:赚了4m<br>2huXTbjeBhtMZ1ugNwUGucYBRasRaaiypymUX6P1Kwjx:赚了9m<br>A4DCAjDwkq5jYhNoZ5Xn2NbkTLimARkerVv81w2dhXgL:赚了3m<br>HyNiuntjo51d5paTG7rX5XLLAAi68GQMN1STwSmvna4F:赚了800k<br></code></pre></td></tr></table></figure><h3 id="波段选手"><a href="#波段选手" class="headerlink" title="波段选手"></a>波段选手</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sh">JD38n7ynKYcgPpF7k1BhXEeREu1KqptU93fVGy3S624k:做市强庄 后期<br>j1oeQoPeuEDmjvyMwBmCWexzCQup77kbKKxV59CnYbd:实力热点价值选手<br>3SYQn32YG7XowiCzXKuXqnqBWtFvQDp3WeK36eE8rTEi:中期趋势选手<br>7zenhRwrPi61L2S9SL8VDj88X7oEfese7Mj8WdStxyac:龙头波段巨鲸<br>8zFZHuSRuDpuAR7J6FzwyF3vKNx4CVW3DFHJerQhc7Zd:中线选手 大亏大赚<br>5bwjwWtTV8ymJCH9GFDtVrEq1zza8Fz1hVec2NwPcFqP:群友 出手少 稳健<br>CNudZYFgpbT26fidsiNrWfHeGTBMMeVWqruZXsEkcUPc:内幕玩家<br>HABhDh9zrzf8mA4SBo1yro8M6AirH2hZdLNPpuvMH6iA:追车达人<br></code></pre></td></tr></table></figure><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a href="https://x.com/0xadai/status/1913907462278909957">一文告诉你目前最热门的扫链工具Axiom怎么用</a><a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>]]></content>
+    
+    
+    <categories>
+      
+      <category>default</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>default</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>知识库</title>
+    <link href="/crypto/2025/05/16/database/"/>
+    <url>/crypto/2025/05/16/database/</url>
+    
+    <content type="html"><![CDATA[<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a href="https://web3.okx.com/zh-hans/portfolio">OKX Web3</a><a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span><a href="https://x.com/0xcryptowizard/status/1854423667842953534">从二级到链上（入门指南）🧵</a><a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:3" class="footnote-text"><span><a href="https://gmgn.ai/">GMGN</a><a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:4" class="footnote-text"><span><a href="https://pump.fun/">Pumpfun</a><a href="#fnref:4" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:5" class="footnote-text"><span><a href="https://four.meme/">FourMeme</a><a href="#fnref:5" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:6" class="footnote-text"><span><a href="https://nine-roar-0d6.notion.site/aiaptx">链上数据 101</a><a href="#fnref:6" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:7" class="footnote-text"><span><a href="https://docs.debot.ai/">DeBot.ai使用教程</a><a href="#fnref:7" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:8" class="footnote-text"><span><a href="https://zhuanlan.zhihu.com/p/712040676">速览Solana链上memecoin玩家必备神器</a><a href="#fnref:8" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:9" class="footnote-text"><span><a href="https://docs.gmgn.ai/cn/qian-bao-gen-dan-gen-dan-cong-ming-qian-zi-dong-zhuan-sol">钱包跟单：跟单聪明钱自动赚SOL</a><a href="#fnref:9" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:10" class="footnote-text"><span><a href="https://guide-zh.dbotx.com/dbot-automated-dex-trading/getting-started">DBot机器人指南</a><a href="#fnref:10" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:11" class="footnote-text"><span><a href="https://dextradepeida.com/dex_tools/271/">新手链上打狗保姆级教程–跟单篇</a><a href="#fnref:11" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>]]></content>
+    
+    
+    <categories>
+      
+      <category>default</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>default</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>常见术语-MEME</title>
+    <link href="/crypto/2025/05/13/terms-meme/"/>
+    <url>/crypto/2025/05/13/terms-meme/</url>
+    
+    <content type="html"><![CDATA[<pre><code class=" mermaid">mindmap  root((常见术语 - MEME))    车头/巨鲸      地址被很多人监控，买入或卖出后具备明显盘面影响力的地址持有人    链上皇      链上操作犀利，胜率极高，收益极高的玩家    笨蛋王      胜率极低，亏钱极多的玩家    群友      喜欢在你头上浇给的好兄弟    老登      泛指不玩链上的人    群友创业      群友自己创建 CA 发币并宣传，假装是别人项目    浇给      砸盘，把币卖给别人    枯坐      长时间盯着链上信息，寻找交易机会    扫链      不断看新项目，寻找买入机会    考古      找回曾死亡但因角度翻红的 meme 项目    打狗      交易 memecoin    塞      用 SOL 买入 meme    掏      成功卖出 meme 并赚到 SOL    包的      确定事件    速通      一天内涨到1亿美元市值的项目    PVP      市值低时买入快速卖出的一种博弈行为      群内财富转移，零和博弈    PVE      大家都能赚点的交易环境    夹子      MEV 机器人抢先买入，抬高买价    盖帽      买入后立刻下跌的调侃行为    FOMO      害怕错过，冲动接盘    FUD      散布负面信息    构建角度      寻找 meme 背后的情绪与故事性    CA      Coin Address：代币地址    DEV      发币的人    DS      Dev Sold：发币人抛售代币    畜生      发币后直接砸盘的 Dev    园区      专门设计 memecoin 骗局的人    金狗      所有人都赚钱的 meme    土狗      泛指 memecoin    几楼      价格排除 0 后的自然数楼层，如 0.00064 表示 6 楼    GMGN      Good Morning, Good Night：早安，晚安</code></pre><ul><li><strong>车头</strong>：指地址被很多人监控，买入或卖出后具备明显盘面影响力的地址持有人  </li><li><strong>浇给</strong>：把币卖给别人，就是砸盘的意思  </li><li><strong>包的</strong>：形容一个确定的事件  </li><li><strong>CA</strong>：把代币合约地址发出来  </li><li><strong>枯坐</strong>：指长时间盯着链上信息，寻找机会的一种交易行为  </li><li><strong>链上皇</strong>：链上操作犀利，胜率极高，收益极高的玩家  </li><li><strong>笨蛋王</strong>：胜率极低，亏钱极多的玩家  </li><li><strong>盖帽</strong>：买入就下跌的一种行为调侃  </li><li><strong>PVP</strong>：在市值极低的时候买入，并快速赚取收益的一种交易行为，同时对应的有人会亏损  </li><li><strong>战壕</strong>：指在链上交易 memecoin，风险极高，犹如在战壕里打仗  </li><li><strong>扫链</strong>：不断地看发行的新资产，寻找可以买入的时机  </li><li><strong>角度</strong>：memecoin 重要的是情绪和故事性，如何发现这种虚拟的价值？大家称为“找角度”  </li><li><strong>畜生</strong>：Dev 发币后直接砸盘  </li><li><strong>群友</strong>：指喜欢在你头上浇给的好兄弟  </li><li><strong>速通</strong>：1 天内从 0 到 1 亿美金市值的项目  </li><li><strong>考古</strong>：已经死亡的 memecoin，因为某些角度又被大家爆买  </li><li><strong>PVP（群内版）</strong>：群内财富转移，交易者间零和博弈  </li><li><strong>PVE</strong>：大家都能赚点  </li><li><strong>老登</strong>：泛指不玩链上的人  </li><li><strong>金狗</strong>：大家都赚钱的 memecoin  </li><li><strong>土狗</strong>：泛指 memecoin  </li><li><strong>打狗</strong>：泛指交易 memecoin  </li><li><strong>DEV</strong>：发币的人  </li><li><strong>DS（Dev Sold）</strong>：指发币人卖币了  </li><li><strong>园区</strong>：指专门设计 memecoin 诈骗的人  </li><li><strong>塞</strong>：用 SOL 买入 memecoin  </li><li><strong>掏</strong>：成功卖出并赚到了 SOL  </li><li><strong>群友创业</strong>：指在 meme 群里，不认识的群友发一个 CA 加上一个刁钻的角度告诉大家在其他地方看到让大家冲，实质是该群友自己创建的 CA  </li><li><strong>几楼</strong>：指价格排除 0 以外第一个自然数，通常用在方便表达价格的语境。如某 meme，上车价格为 0.00064，现价为 0.00093，通常表达为“我在 6 楼上车，现在 9 楼”  </li><li><strong>夹子</strong>：指在你买入之前，MEV 机器人抢先购买（会导致你的交易执行价格变高），等你的交易完成后，它再快速卖出获利，也就是说你本来能买 100 个代币，但最后只到手 90 个甚至更少；买卖时记得在 GMGN 设置防夹子  </li><li><strong>FOMO</strong>：害怕错过，赶紧接盘买入  </li><li><strong>FUD</strong>：散布项目的负面信息  </li><li><strong>GMGN</strong>：Good Morning, Good Night，早安，晚安</li></ul><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a href="/crypto/others/GMGN%EF%BC%9A%E4%BB%8E0%E5%88%B01000%E4%B8%87%E7%BE%8E%E9%87%91Meme%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97.pdf">GMGN：从0刀1000万美金Meme操作指南</a><a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>]]></content>
+    
+    
+    <categories>
+      
+      <category>default</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>default</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>比特币</title>
+    <link href="/crypto/2025/05/06/bitcoin/"/>
+    <url>/crypto/2025/05/06/bitcoin/</url>
+    
+    <content type="html"><![CDATA[<h2 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h2><ul><li><a href="https://blockchainlittlebook.com/#/">区块链小白书</a></li></ul><h2 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h2><ul><li><a href="https://bitcoin.org/">https://bitcoin.org/</a></li></ul><h2 id="白皮书"><a href="#白皮书" class="headerlink" title="白皮书"></a>白皮书</h2><ul><li><a href="https://bitcoin.org/bitcoin.pdf">比特币白皮书</a></li><li><a href="https://bitcoin.org/files/bitcoin-paper/bitcoin_zh_cn.pdf">比特币白皮书-中文版</a></li><li><a href="https://lixiaolai.com/#/bitcoin-whitepaper-cn-en-translation/Bitcoin-Whitepaper-EN-CN.html">比特币白皮书-中英对照版</a></li></ul><h2 id="发行总量"><a href="#发行总量" class="headerlink" title="发行总量"></a>发行总量</h2><blockquote><p>精确的比特币的发行总量参考Bitcoin Wiki的<a href="https://en.bitcoin.it/wiki/Controlled_supply">Controlled supply</a>。</p></blockquote><p>比特币自创世区块开始，平均每10分钟打包一个区块。每打包一个区块，最初会产生50个比特币奖励，并且每4年减半一次。为简化计算，假设每年为365天，不考虑闰年。<br>$$<br>S &#x3D; 50 \times 6 \times 24 \times 365 \times 4 \times (1+\frac{1}{2}+\frac{1}{4}+\frac{1}{8}+…+\frac{1}{2^n})<br>$$<br>把等比数列用$T$表示<br>$$<br>T&#x3D;1+\frac{1}{2}+\frac{1}{4}+\frac{1}{8}+…+\frac{1}{2^n}<br>$$<br>则将$T$除以2可得<br>$$<br>\frac{T}{2}&#x3D;\frac{1}{2}+\frac{1}{4}+\frac{1}{8}+…+\frac{1}{2^n}+\frac{1}{2^{n+1}}<br>$$<br>两式相减<br>$$<br>T-\frac{T}{2} &#x3D; 1 - \frac{1}{2^{n+1}}<br>$$<br>由于 $\frac{1}{2^{n+1}}$ 趋近于0，因此近似有 $T \approx 2$，代入得：<br>$$<br>S \approx 50 \times 6 \times 24 \times 365 \times 4 \times (2) &#x3D; 21,024,000<br>$$<br>因此可粗略估算比特币总量约为<strong>2100 万枚</strong>。在所有比特币挖完之后，参与维护的节点（矿工）依然可以平分手续费作为奖励。</p><h2 id="价格走势"><a href="#价格走势" class="headerlink" title="价格走势"></a>价格走势</h2><pre><code class=" mermaid">xychart-beta    title &quot;Bitcoin Price Trend&quot;    x-axis [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]    y-axis &quot;Price (in $)&quot; 0.01 --&gt; 109800    bar [0, 0.1, 0.5, 5.5, 20.4, 938.8, 218.5, 369.8, 965.5, 10265, 3437, 9349, 33108, 38498, 23125, 42580, 94536]    line [0, 0.1, 0.5, 5.5, 20.4, 938.8, 218.5, 369.8, 965.5, 10265, 3437, 9349, 33108, 38498, 23125, 42580, 94536]</code></pre><h2 id="披萨"><a href="#披萨" class="headerlink" title="披萨"></a>披萨</h2><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a href="https://cn.investing.com/crypto/bitcoin/historical-data">比特币历史数据</a><a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>]]></content>
+    
+    
+    <categories>
+      
+      <category>default</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>default</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>香港券商开户</title>
+    <link href="/crypto/2025/04/25/hk-broker/"/>
+    <url>/crypto/2025/04/25/hk-broker/</url>
+    
+    <content type="html"><![CDATA[<h2 id="盈立证券"><a href="#盈立证券" class="headerlink" title="盈立证券"></a>盈立证券</h2><blockquote><p>盈立不需要存量证明</p></blockquote><h3 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h3><h3 id="出入金"><a href="#出入金" class="headerlink" title="出入金"></a>出入金</h3><h3 id="佣金"><a href="#佣金" class="headerlink" title="佣金"></a>佣金</h3><h3 id="开户奖励"><a href="#开户奖励" class="headerlink" title="开户奖励"></a>开户奖励</h3>]]></content>
+    
+    
+    <categories>
+      
+      <category>default</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>default</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>香港银行卡开户</title>
+    <link href="/crypto/2025/04/24/hk-card/"/>
+    <url>/crypto/2025/04/24/hk-card/</url>
+    
+    <content type="html"><![CDATA[<h2 id="1-汇丰"><a href="#1-汇丰" class="headerlink" title="1.汇丰"></a>1.汇丰</h2><h3 id="1-1-办理"><a href="#1-1-办理" class="headerlink" title="1.1 办理"></a>1.1 办理</h3><ul><li><input disabled="" type="checkbox"> 连接香港本地WiFi</li><li><input disabled="" type="checkbox"> 下载APP：HSBC HK</li><li><input disabled="" type="checkbox"> 进入登录界面</li><li><input disabled="" type="checkbox"> 点击<strong>我没有任何账户</strong></li><li><input disabled="" type="checkbox"> 身处选择<strong>香港特别行政区</strong></li><li><input disabled="" type="checkbox"> 选择<strong>汇丰One</strong></li><li><input disabled="" type="checkbox"> 开户原因选择<strong>打算在香港储蓄&#x2F;投资</strong></li><li><input disabled="" type="checkbox"> 验证身份<ul><li><input disabled="" type="checkbox"> 邮箱</li><li><input disabled="" type="checkbox"> 身份证拍摄</li><li><input disabled="" type="checkbox"> NFC读取港澳通行证</li><li><input disabled="" type="checkbox"> 英文或拼音填写<strong>居住地址</strong></li><li><input disabled="" type="checkbox"> 上传出入境记录（移民局12367线上申请PDF）</li></ul></li><li><input disabled="" type="checkbox"> 大约10天左右收到卡，不需要线下激活</li></ul><h3 id="1-2-优缺点"><a href="#1-2-优缺点" class="headerlink" title="1.2 优缺点"></a>1.2 优缺点</h3><ul><li>换汇免费快速</li><li>支持国际电汇、全球转账</li></ul><h2 id="2-中银"><a href="#2-中银" class="headerlink" title="2.中银"></a>2.中银</h2><blockquote><p>中国银行(香港)</p></blockquote><h3 id="2-1-办理"><a href="#2-1-办理" class="headerlink" title="2.1 办理"></a>2.1 办理</h3><ul><li><input disabled="" type="checkbox"> 连接香港本地WiFi</li><li><input disabled="" type="checkbox"> 下载APP：BOCHK 中银香港</li><li><input disabled="" type="checkbox"> 选择<strong>开立账户</strong></li><li><input disabled="" type="checkbox"> 选择<strong>我身处香港</strong></li><li><input disabled="" type="checkbox"> 选择<strong>我不在分行</strong></li><li><input disabled="" type="checkbox"> 选择<strong>自在理财</strong></li><li><input disabled="" type="checkbox"> 允许获取位置</li><li><input disabled="" type="checkbox"> 上传出入境记录(移民局12367下载出入境记录，PDF发送至邮箱)</li><li><input disabled="" type="checkbox"> 身份证拍照上传</li><li><input disabled="" type="checkbox"> 人脸识别</li><li><input disabled="" type="checkbox"> 填写手机号</li><li><input disabled="" type="checkbox"> 填写实体卡邮寄地址</li><li><input disabled="" type="checkbox"> 尝试登录电子银行验证开户是否成功，并存入一定资金</li><li><input disabled="" type="checkbox"> 1-4周等收到实体卡，找一个中银ATM激活（带银联标志）</li></ul><h3 id="2-2-优缺点"><a href="#2-2-优缺点" class="headerlink" title="2.2 优缺点"></a>2.2 优缺点</h3><ul><li>5万美金外汇额度</li><li>港陆同名账户互转HKD和RMB免费（免手续费和电讯费）</li><li>可以绑定微信消费使用</li></ul><h2 id="3-转账路径"><a href="#3-转账路径" class="headerlink" title="3.转账路径"></a>3.转账路径</h2><blockquote><p>手续费较低的转账路径</p></blockquote><ol><li>大陆中银账户</li><li>中银香港账户</li><li>汇丰香港账户</li><li>海外汇丰账户</li><li>WISE平台换汇</li><li>进入其他账户</li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>default</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>default</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Roadmap</title>
+    <link href="/crypto/2025/02/08/todo/roadmap/"/>
+    <url>/crypto/2025/02/08/todo/roadmap/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>新知识点均可以通过小红书，B站，抖音查找优秀教程。先理解，再准确</p></blockquote><h2 id="综合"><a href="#综合" class="headerlink" title="综合"></a>综合</h2><ul><li><input disabled="" type="checkbox"> 加密货币的起源，本质上需要解决什么问题</li><li><input disabled="" type="checkbox"> 一级市场&#x2F;二级市场</li><li><input disabled="" type="checkbox"> Defi</li><li><input disabled="" type="checkbox"> Web3</li><li><input disabled="" type="checkbox"> 筹码分析</li><li><input disabled="" type="checkbox"> 大地址监控</li><li><input disabled="" type="checkbox"> 高资金费率，查看欧易历史账单</li><li><input disabled="" type="checkbox"> 深度图</li><li><input disabled="" type="checkbox"> BTC&#x2F;ETH白皮书<ul><li><input disabled="" type="checkbox"> <a href="https://bitcoin.org/files/bitcoin-paper/bitcoin_zh_cn.pdf">比特币白皮书</a>，<a href="https://bitcoin.org/bitcoin.pdf">Bitcoin: A peer-to-Peer Electronic Cash System</a></li><li><input disabled="" type="checkbox"> <a href="https://ethereum.org/zh/whitepaper">以太坊白皮书</a></li></ul></li><li><input disabled="" type="checkbox"> <a href="https://ethereum.org/zh/">以太坊官网</a></li><li><input disabled="" type="checkbox"> 尝试链上转账</li><li><input disabled="" type="checkbox"> 试用量化机器人，判断可行性</li><li><input disabled="" type="checkbox"> coinbase</li><li><input disabled="" type="checkbox"> bitget</li><li><input disabled="" type="checkbox"> <a href="https://www.high-flyer.cn/">幻方</a></li><li><input disabled="" type="checkbox"> ETF是什么</li><li><input disabled="" type="checkbox"> PKU学生区块链中心</li><li><input disabled="" type="checkbox"> kaito空投</li><li><input disabled="" type="checkbox"> 查询交易</li><li><input disabled="" type="checkbox"> 可视化查询交易<ul><li><input disabled="" type="checkbox"> 0xScope</li><li><input disabled="" type="checkbox"> Arkham visualizer</li></ul></li><li><input disabled="" type="checkbox"> odin.fun</li><li><input disabled="" type="checkbox"> <a href="https://lixiaolai.com/#/">李笑来博客</a></li></ul><h2 id="专有名词"><a href="#专有名词" class="headerlink" title="专有名词"></a>专有名词</h2><ul><li><input disabled="" type="checkbox"> 貔貅币</li><li><input disabled="" type="checkbox"> Solana</li><li><input disabled="" type="checkbox"> 空投</li><li><input disabled="" type="checkbox"> 网络</li><li><input disabled="" type="checkbox"> GMGN, <a href="/crypto/others/GMGN%EF%BC%9A%E4%BB%8E0%E5%88%B01000%E4%B8%87%E7%BE%8E%E9%87%91Meme%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97.pdf">GMGN：从0刀1000万美金Meme操作指南</a></li><li><input disabled="" type="checkbox"> 质押&#x2F;流动性质押</li><li><input disabled="" type="checkbox"> CEX&#x2F;DEX</li><li><input disabled="" type="checkbox"> 代币</li><li><input disabled="" type="checkbox"> 现货&#x2F;合约(永续)</li><li><input disabled="" type="checkbox"> 交割</li><li><input disabled="" type="checkbox"> meme</li><li><input disabled="" type="checkbox"> Layer1&#x2F;Layer2</li><li><input disabled="" type="checkbox"> PoW&#x2F;PoS</li><li><input disabled="" type="checkbox"> NFT</li><li><input disabled="" type="checkbox"> ERC20</li><li><input disabled="" type="checkbox"> 元宇宙</li><li><input disabled="" type="checkbox"> 量化</li><li><input disabled="" type="checkbox"> 逐仓&#x2F;全仓</li></ul><h2 id="欧易"><a href="#欧易" class="headerlink" title="欧易"></a>欧易</h2><h3 id="APP架构"><a href="#APP架构" class="headerlink" title="APP架构"></a>APP架构</h3><h4 id="主页"><a href="#主页" class="headerlink" title="主页"></a>主页</h4><ul><li><input disabled="" type="checkbox"> 链上充币</li><li><input disabled="" type="checkbox"> C2C买币</li></ul><h4 id="发现"><a href="#发现" class="headerlink" title="发现"></a>发现</h4><ul><li><input disabled="" type="checkbox"> 市场<ul><li><input disabled="" type="checkbox"> 合约<ul><li><input disabled="" type="checkbox"> 人工智能</li><li><input disabled="" type="checkbox"> 游戏代币</li></ul></li><li><input disabled="" type="checkbox"> 盘前交易</li><li><input disabled="" type="checkbox"> 期权</li></ul></li><li><input disabled="" type="checkbox"> 精选<ul><li><input disabled="" type="checkbox"> 天地网格</li><li><input disabled="" type="checkbox"> 跟单</li><li><input disabled="" type="checkbox"> 策略</li></ul></li><li><input disabled="" type="checkbox"> 机会</li></ul><h4 id="交易"><a href="#交易" class="headerlink" title="交易"></a>交易</h4><ul><li><input disabled="" type="checkbox"> 交易页<ul><li><input disabled="" type="checkbox"> 行情</li><li><input disabled="" type="checkbox"> 概况</li><li><input disabled="" type="checkbox"> 数据</li><li><input disabled="" type="checkbox"> 动态</li><li><input disabled="" type="checkbox"> 交易</li><li><input disabled="" type="checkbox"> 跟单</li><li><input disabled="" type="checkbox"> 策略<ul><li><input disabled="" type="checkbox"> 现货网格</li><li><input disabled="" type="checkbox"> 现货马丁格尔</li><li><input disabled="" type="checkbox"> 合约网格</li><li><input disabled="" type="checkbox"> 合约马丁格尔</li></ul></li></ul></li></ul><h4 id="金融"><a href="#金融" class="headerlink" title="金融"></a>金融</h4><ul><li><input disabled="" type="checkbox"> 简单赚币</li><li><input disabled="" type="checkbox"> 链上赚币</li><li><input disabled="" type="checkbox"> Jumpstart</li><li><input disabled="" type="checkbox"> 结构化产品</li><li><input disabled="" type="checkbox"> 赚币奖励</li></ul><h4 id="资产"><a href="#资产" class="headerlink" title="资产"></a>资产</h4><ul><li><input disabled="" type="checkbox"> 资金账户</li><li><input disabled="" type="checkbox"> 交易账户</li><li><input disabled="" type="checkbox"> 赚币</li></ul><h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul><li><input disabled="" type="checkbox"> 欧易学院</li><li><input disabled="" type="checkbox"> 第三方API接口</li><li><input disabled="" type="checkbox"> 资产分析<ul><li><input disabled="" type="checkbox"> 每日收益</li></ul></li></ul><h2 id="其他-1"><a href="#其他-1" class="headerlink" title="其他"></a>其他</h2><ul><li><input disabled="" type="checkbox"> 如何发行新币（评估可行性）</li><li><input checked="" disabled="" type="checkbox"> Android&#x2F;IOS 不拔卡运行tiktok。已确定不可行，Android拔卡使用，VPN全局代理，系统设置保持地区。</li><li><input disabled="" type="checkbox"> 增加相关书籍</li><li><input disabled="" type="checkbox"> 增加相关PDF</li><li><input disabled="" type="checkbox"> 整理相关专栏 例如 YouTube栏目</li></ul>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>todo</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Web3简介</title>
+    <link href="/crypto/2025/02/08/Web3/"/>
+    <url>/crypto/2025/02/08/Web3/</url>
+    
+    <content type="html"><![CDATA[<h2 id="什么是Web3"><a href="#什么是Web3" class="headerlink" title="什么是Web3"></a>什么是Web3</h2><p>以太坊官网关于<a href="https://ethereum.org/zh/web3/">Web3</a>的介绍。核心是去中心化(Decentralization)，用户可以创建，</p><h3 id="Web-1-0，只读"><a href="#Web-1-0，只读" class="headerlink" title="Web 1.0，只读"></a>Web 1.0，只读</h3><p>Web 1.0指的是互联网早期阶段，大致从1990至2004年，经典应用是静态网站，比如公司官网、新闻网站。用户只能浏览企业提供的内容，无法与企业进行互动或生成内容。</p><h3 id="Web-2-0，可读-可写"><a href="#Web-2-0，可读-可写" class="headerlink" title="Web 2.0，可读 &amp; 可写"></a>Web 2.0，可读 &amp; 可写</h3><p>其中，移动互联网是Web 2.0的一个重要分支，用户可以借助移动设备能随时随地接入互联网。典型的应用如下</p><ul><li>社交网络：微信、What’s app</li><li>移动支付：微信支付、支付宝</li><li>短视频&#x2F;直播：TikTok&#x2F;抖音、快手</li><li>外卖：美团、饿了么</li><li>出行：滴滴、高德</li></ul><h3 id="Web-3-0，可读-可写-可持有"><a href="#Web-3-0，可读-可写-可持有" class="headerlink" title="Web 3.0，可读 &amp; 可写 &amp; 可持有"></a>Web 3.0，可读 &amp; 可写 &amp; 可持有</h3><p>以本文所处的主流Web技术时代，即Web 2.0，举一个实际例子：比如你购买了一个游戏，那么这个游戏理论上属于你。假如极端情况发生，游戏平台倒闭了，你的账号再也无法下载该游戏，这个游戏也就不再属于你了。还有更多情况：</p><ul><li>你的社交账号拥有很多粉丝，但是违反了监管&#x2F;政策等规则，账号被封</li><li></li></ul><h2 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h2><h2 id="目前局限"><a href="#目前局限" class="headerlink" title="目前局限"></a>目前局限</h2>]]></content>
+    
+    
+    <categories>
+      
+      <category>Web3</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Web3</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Today Todo</title>
+    <link href="/crypto/2025/02/06/todo/today/"/>
+    <url>/crypto/2025/02/06/todo/today/</url>
+    
+    <content type="html"><![CDATA[<ul><li><input disabled="" type="checkbox"> 创建一个硬件钱包</li><li><input disabled="" type="checkbox"> 完成一次链上转账</li><li><input disabled="" type="checkbox"> 购买Trump 2.0币，重点关注空投</li></ul>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>todo</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>
