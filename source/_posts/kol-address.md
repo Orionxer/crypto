@@ -51,6 +51,10 @@ CNudZYFgpbT26fidsiNrWfHeGTBMMeVWqruZXsEkcUPc: DNF小号
 
 ### 英文KOL
 ```sh
+215nhcAHjQQGgwpQSJQ7zR26etbjjtVdW74NLzwEgQjP: 0GAntD
+G5nxEXuFMfV74DSnsrSatqCW32F34XUnBeq3PfDS7w5E: FlippingProfits
+4BdKaxN8G6ka4GYtQQWk4G4dZRUTX2vQH9GcXdBREFUk: jijo_exe
+FRDcU32jfiuo7bTM7e2SHtZnx6fSrLTS19iGScfCamPU: ihateoop
 5B52w1ZW9tuwUduueP5J7HXz5AcGfruGoX6YoAudvyxG: Yennii56
 3h65MmPZksoKKyEpEjnWU2Yk2iYT5oZDNitGy5cTaxoE: jidn_w
 DfMxre4cKmvogbLrPigxmibVTTQDuzjdXojWzjCXXhzj: Euris_JT
