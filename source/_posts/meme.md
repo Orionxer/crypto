@@ -21,6 +21,12 @@ date: 2025-05-30 15:56:51
 - [CryptoKay🎲KK | 1000X GEM: 投资是一场修行](https://x.com/aristotlewitt/status/1907782133973979339)
 ### 2.实践
 - [GMGN聪明钱包列表](https://gmgn.ai/trade/EVmAlG3J?chain=sol&tab=renowned)
+- [雪球：如何定制聪明钱包](https://x.com/xueqiu88/status/1930048464093856077)
+  - Chrome插件，MemeRadar
+  - Chrome插件，币胜客数据助手
+  - F12提取GMGN官方聪明钱地址以及备注，复制到Excel后（删除冒号等操作）导入至Debot/dbot等机器人工具。同时可以得到SOL/BSC和ETH聪明钱
+  ![alt text](smart_money.png)
+- [Faster100x MEME 交易员成长指南](https://faster100xzone.notion.site/)
 - [MEME市场擒龙术一：短期抄底及如何盈利](https://x.com/Shanks_A9z/status/1864627114752004552)
 - [MEME市场擒龙术五：打新盘的真正秘法，P小将们秘而不宣的逻辑](https://x.com/Shanks_A9z/status/1904836990534901969)
 - [麦论 | Meme链上入门白皮书 & 超多案例分析教学](https://x.com/xixi_kawayi/status/1876918100056252623)
@@ -28,6 +34,7 @@ date: 2025-05-30 15:56:51
 - [区块链行情研究：打狗工具合集](https://x.com/qkl2058/status/1915937442210975815)
 - [雪球：Axiom如何扫链](https://x.com/xueqiu88/status/1910647036203917680)
 - [雪球：Axiom如何监控钱包+监控推特](https://x.com/xueqiu88/status/1911027521350734231)
+- [十九岁绿帽少年： Axion扫链数据](https://x.com/19ys_GGboy/status/1924825213847666801)
 - [Crypto暴富：我所理解的冲MEME正确姿势](https://x.com/Cryptobaofu888/status/1910934869703565416)
 - [Sandly: 好用的快速扫链工具——插件篇（包含基础和进阶工具）](https://x.com/Sandlily163/status/1906762116650115427)
 - [🔞🈲 PUMPFUN 内盘扫链/外盘常用工具超全整理](https://x.com/xixi_kawayi/status/1875053165596578285)
@@ -49,6 +56,9 @@ date: 2025-05-30 15:56:51
 ### 4.机器人(选读)
 - [Debot篇 ——— 冲meme必备教程（基础版）](https://x.com/OrdzWorld/status/1882023127678632331)
 - [DeBot 狙击 BONK 团队主力买入信号](https://x.com/DitingData/status/1922480719479374335)
+### 5.其他
+- [十九岁绿帽少年的打狗直播回放](https://sidekick.fans/channel/cm9pqz5rb031yl20lncilryso)
+- [Dune平台使用](https://dune.com/)
 
 ## 链上生态
 ![Onchain AI Ecosystem](ecosystem.png)
