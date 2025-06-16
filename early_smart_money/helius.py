@@ -1,4 +1,7 @@
 ﻿
+
+# ! Helius接口有查询限制，暂时不用
+
 # TODO 验证 GetSignaturesForAddress 接口，打印所有键值对，获取哈希签名
 # 接口文档 https://www.helius.dev/docs/rpc/guides/getsignaturesforaddress
 
