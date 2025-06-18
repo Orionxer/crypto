@@ -21,11 +21,13 @@ token_address = "ENfpbQUM5xAnNP8ecyEQGFJ6KwbuPjMwv7ZjR29cDuAb"
 # 查询列表
 results = get_signatures_for_address_list(token_address, signature)
 # 打印列表 
-# TODO 添加本地超时
-# TODO 添加容错处理
 for i, (block_time, signature) in enumerate(results, start=1):
-    # 获取Signer地址
+    # 获取Signer地址 
     signer = get_signer(signature)
+    # TODO 添加容错处理
+    if signer is None:
+        print("[Error]: Get Signer Failed, stop...")
+        break
     # 转换为可读的UTC时间 # ! 默认0时区，即 +UTC
     human_time = datetime.fromtimestamp(block_time, tz=timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
     print(f"[{i:03d}] BlockTime: {block_time}, HumanTime: {human_time}, Signature: {signature}, Signer: {signer}")
