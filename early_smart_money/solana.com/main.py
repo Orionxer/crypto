@@ -20,6 +20,7 @@ signature = "GF5tJVe6PZV2DFVhSYRZQSxisoH9YS8fTnGGwBqNcCYJ1jmyBr5VRVcKJRJRsK9TRsy
 token_address = "ENfpbQUM5xAnNP8ecyEQGFJ6KwbuPjMwv7ZjR29cDuAb"
 # 查询列表
 results = get_signatures_for_address_list(token_address, signature)
+print(f"Expect Signatures List Length: {len(results)}")
 # 打印列表 
 for i, (block_time, signature) in enumerate(results, start=1):
     # 获取Signer地址 
@@ -31,4 +32,7 @@ for i, (block_time, signature) in enumerate(results, start=1):
     # 转换为可读的UTC时间 # ! 默认0时区，即 +UTC
     human_time = datetime.fromtimestamp(block_time, tz=timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
     print(f"[{i:03d}] BlockTime: {block_time}, HumanTime: {human_time}, Signature: {signature}, Signer: {signer}")
+    if i == len(results):
+        print("=======================================")
+        print("Every valid data requst success")
     time.sleep(5)
