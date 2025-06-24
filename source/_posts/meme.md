@@ -53,6 +53,7 @@ date: 2025-05-30 15:56:51
 - [Ai姨： 如何挑选最适合自己的链上监控工具🔔](https://x.com/ai_9684xtpa/status/1792806341100396839)
 
 ### 3.链游
+- [保姆级教程！区块链版冒险岛 MapleStory Universe（安装篇）](https://www.youtube.com/watch?v=wkU35P6ymu4)
 - [Nexpace (NXPC)：《冒险岛》IP 上线 Web3](https://learn.bybitglobal.com/zh-MY/web3/what-is-nexpace-maplestory-nxpc)
 - [冒险岛官网](https://msu.io)
 - [冒险岛IP的区块链游戏](https://x.com/StanPoldark/status/1913924409578148114)
