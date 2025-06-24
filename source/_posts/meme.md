@@ -60,10 +60,11 @@ date: 2025-05-30 15:56:51
 
 #### 3.1 冒险岛注册步骤
 1. 打开[冒险岛官网](https://msu.io)，点击`connect Wallet`，使用小狐狸签名授权
-2. 谷歌邮箱有概率收不到验证码，使用微软邮箱可以收到
-3. 打开[MapleStory](https://msu.io/maplestoryn)，点击右侧上方的`GAME START`，签名授权打开`Nexpace Game Manager`
-4. 第一次会下载一个`Install NGM.exe`的安装包，安装后，选择游戏的安装路径
-5. 游戏的大小大概在20GB，下载完成后，点击网页的`GAME START`即可开始游戏
+2. 代理节点选择**新加坡**
+3. 谷歌邮箱有概率收不到验证码，使用微软邮箱可以收到
+4. 打开[MapleStory](https://msu.io/maplestoryn)，点击右侧上方的`GAME START`，签名授权打开`Nexpace Game Manager`
+5. 第一次会下载一个`Install NGM.exe`的安装包，安装后，选择游戏的安装路径
+6. 游戏的大小大概在20GB，下载完成后，点击网页的`GAME START`即可开始游戏
 
 ### 4.机器人(选读)
 - [Debot篇 ——— 冲meme必备教程（基础版）](https://x.com/OrdzWorld/status/1882023127678632331)
