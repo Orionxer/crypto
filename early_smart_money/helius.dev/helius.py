@@ -123,8 +123,6 @@ signature = "GF5tJVe6PZV2DFVhSYRZQSxisoH9YS8fTnGGwBqNcCYJ1jmyBr5VRVcKJRJRsK9TRsy
 token_address = "ENfpbQUM5xAnNP8ecyEQGFJ6KwbuPjMwv7ZjR29cDuAb"
 # 查询列表
 results = get_signatures_for_address_list(token_address, signature)
-# 查询列表
-results = get_signatures_for_address_list(token_address, signature)
 print(f"Expect Signatures List Length: {len(results)}")
 # 打印列表 
 for i, (block_time, signature) in enumerate(results, start=1):

@@ -19,7 +19,14 @@ payload = {
     "id": 1,
     "jsonrpc": "2.0",
     "method": "getTransaction",
-    "params": ["3sSFXZwWnL9Cbu6nnCapBScFMJFujKoP8TKA37nYk3Ryi3b3yi1QbcCT5xs9mtGmS7CjUgiHESgC8tqbqQvcg4Lk"]
+    "params": [
+        "GF5tJVe6PZV2DFVhSYRZQSxisoH9YS8fTnGGwBqNcCYJ1jmyBr5VRVcKJRJRsK9TRsyrHmX7K1eEvqgPPvXxSBk",
+        {
+            "commitment": "confirmed",
+            "maxSupportedTransactionVersion": 0,
+            "encoding": "json"
+        }
+    ]
 }
 
 headers = {
