@@ -54,6 +54,7 @@ date: 2025-05-30 15:56:51
 
 ### 3.链游
 - [保姆级教程！区块链版冒险岛 MapleStory Universe（安装篇）](https://www.youtube.com/watch?v=wkU35P6ymu4)
+- [冒险岛（NXPC）链游怎么玩？NXPC 上线全流程教学](https://www.binance.com/zh-CN/square/post/24280062814322)
 - [Nexpace (NXPC)：《冒险岛》IP 上线 Web3](https://learn.bybitglobal.com/zh-MY/web3/what-is-nexpace-maplestory-nxpc)
 - [冒险岛官网](https://msu.io)
 - [冒险岛IP的区块链游戏](https://x.com/StanPoldark/status/1913924409578148114)

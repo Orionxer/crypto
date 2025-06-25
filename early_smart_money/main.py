@@ -60,13 +60,11 @@ def friend_print(response):
 ############################ 数据库 #####################################
 # def create_database():
 
-record = {}
-record_list = []
-
 # 初始化数据库
-def init_database(db_name, symbol, record_list):
+def init_database(db_name, symbol, record):
     # 连接数据库 # ** 如果数据库不存在会自动新建 
     conn = sqlite3.connect(db_name)
+    conn.row_factory = sqlite3.Row
     # 创建游标
     cursor = conn.cursor()
     # 检查表是否存在
@@ -74,8 +72,9 @@ def init_database(db_name, symbol, record_list):
     if cursor.fetchone() is not None:
         # 表存在, 查询最后一条记录
         cursor.execute(f"SELECT * FROM {symbol} ORDER BY ROWID DESC LIMIT 1")
-        last_record = cursor.fetchone()
-        print(last_record)
+        row = cursor.fetchone()
+        last_record = dict(row)
+        # print(last_record)
     else:
         # 表不存在，创建一个新表
         cursor.execute(f'''
@@ -88,11 +87,22 @@ def init_database(db_name, symbol, record_list):
         ''')
         # 插入第一条数据
         cursor.execute(f"INSERT INTO {symbol} (BlockTime, HumanTime, Signature, Signer) VALUES (?, ?, ?, ?)",
-                        (1747103065, "2025-05-13 02:24:25", "AAR9fAXWRUzr8YpUQgbxMBqtS92duY5bdWoGoGJxW3ZJeZSxSwdLpThPfTAdnh6BqQGqJhhSrUR6dnpr9hnyQfT", "BB4z2R9J1MVhr35sbmapsfohym4xmkVXDj3dyNZW6yCz"))
+                        (record["BlockTime"], record["HumanTime"], record["Signature"], record["Signer"]))
         # 提交事务 # TODO 每次分页查询完整结束后，调用一次commit
         conn.commit()
+        # 第一条就是最后一条
+        last_record = record
     conn.close()
+    return last_record
 
+def insert_records(db_name, record_list):
+    conn = sqlite3.connect(db_name)
+    cursor = conn.cursor()
+    for record in record_list:
+        cursor.execute(f"INSERT INTO {symbol} (BlockTime, HumanTime, Signature, Signer) VALUES (?, ?, ?, ?)",
+                        (record["BlockTime"], record["HumanTime"], record["Signature"], record["Signer"]))
+    conn.commit()
+    conn.close()
 
 ########################## 查询Symbol ##################################
 # 文档 ： https://docs.tatum.io/reference/gettokensv4
@@ -116,7 +126,6 @@ def get_symbol(token_address):
     
 
 ########################## 查询交易 ####################################
-
 def get_transaction(url, headers, params, signature):
     payload = {
         "jsonrpc": "2.0",
@@ -162,6 +171,34 @@ def get_signatures_for_address(url, headers, params, address, signature, num):
     except requests.exceptions.RequestException as e:
         print(f"请求失败：{e}")
         return {"error": str(e)}
+    
+def get_signer(url, headers, params, signature):
+    response = get_transaction(url, headers, params, signature)
+    # friend_print(response)
+    # TODO 添加容错处理
+    if 'result' in response:
+        # 获取Signer地址(买入地址)  
+        first_account_key = response["result"]["transaction"]["message"]["accountKeys"][0]
+    else:
+        print("======= Error =======")
+        friend_print(response)
+        first_account_key = None
+    return first_account_key
+
+def get_signatures_for_address_list(url, headers, params, address, signature, num):
+    # 查询结果
+    response = get_signatures_for_address(url, headers, params, address, signature, num)
+    # 打印结果
+    # friend_print(response)
+    # ** 如果"err"不为null，说明交易异常，则忽略该签名
+    results = []
+    for transaction in response.get("result", []):
+        if transaction.get("err") is None:
+            block_time = transaction.get("blockTime")
+            signature = transaction.get("signature")
+            results.append((block_time, signature))
+    return results
+
 
 ########################## 补充初始数据 ##################################
 # https://solscan.io/ 根据哈希签名查询其他需要补充数据
@@ -187,13 +224,36 @@ block_time = response["result"]["blockTime"]
 human_time = datetime.fromtimestamp(block_time, tz=timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
 # 获取买入地址
 signer = response["result"]["transaction"]["message"]["accountKeys"][0]
-record_list = [
-    {"BlockTime":block_time, "HumanTime":human_time, "Signature": signature, "Signer":signer},
-]
-print(record_list)
+record = {"BlockTime":block_time, "HumanTime":human_time, "Signature": signature, "Signer":signer}
+# print(record)
 # 拼接数据库名称
 db_name = kol_nickname + ".db"
 # print("database_name:", db_name)
 symbol = get_symbol(token_address)
 # print("table_name:", symbol)
+# 初始化数据库,并获取最后一条记录
+last_record = init_database(db_name, symbol, record)
+# print(last_record)
+signature = last_record["Signature"]
+print("The last Signature is:",signature)
+# 查询列表
+results = get_signatures_for_address_list(url, headers, params, token_address, signature, 10)
+record_list = []
+print(f"Expect Signatures List Length: {len(results)}")
+# 打印列表 
+for i, (block_time, signature) in enumerate(results, start=1):
+    # 获取Signer地址 
+    signer = get_signer(url, headers, params, signature)
+    # TODO 添加容错处理
+    if signer is None:
+        print("[Error]: Get Signer Failed, stop...")
+        break
+    # 转换为可读的UTC时间 # ! 默认0时区，即 +UTC
+    human_time = datetime.fromtimestamp(block_time, tz=timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
+    print(f"[{i:03d}] BlockTime: {block_time}, HumanTime: {human_time}, Signature: {signature}, Signer: {signer}")
+    record_list.append({"BlockTime":block_time, "HumanTime":human_time, "Signature": signature, "Signer":signer})
+    if i == len(results):
+        print("=======================================")
+        print("Every valid data requst success")
+        insert_records(db_name, record_list)
 
