@@ -15,7 +15,7 @@ def get_symbol(token_address):
     }
     try:
         response = requests.get(url, headers=headers, params=params, timeout=10)
-        # print(response.json())
+        print(response.json())
         return response.json()["symbol"]
     except requests.exceptions.Timeout:
         print("请求超时")
