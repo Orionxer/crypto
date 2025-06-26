@@ -7,6 +7,11 @@ from rich import print
 from rich.syntax import Syntax
 import json
 
+def friend_print(response_str):
+    json_str = json.dumps(response_str, indent=4, ensure_ascii=False)
+    syntax = Syntax(json_str, "json", theme="dracula", background_color="default")
+    print(syntax)
+
 # 根据哈希签名查询在此时间之前的交易哈希签名
 # ! 查询数量不能超过1000
 def get_signatures_for_address(address, signature):
@@ -18,18 +23,14 @@ def get_signatures_for_address(address, signature):
         "params": [
             address,
             {
-                "limit": 100,
+                "limit": 10,
                 "before": signature
             }
         ]
     }
     response = requests.post(url, json=payload)
+    friend_print(response.json())
     return response.json()
-
-def json_print(response_str):
-    json_str = json.dumps(response_str, indent=4, ensure_ascii=False)
-    syntax = Syntax(json_str, "json", theme="dracula", background_color="default")
-    print(syntax)
 
 def get_signatures_for_address_list(address, signature):
     # 查询结果
@@ -47,13 +48,13 @@ def get_signatures_for_address_list(address, signature):
 
 ###########################################################
 
-# # 使用示例
-# # 签名哈希
-# signature = "GF5tJVe6PZV2DFVhSYRZQSxisoH9YS8fTnGGwBqNcCYJ1jmyBr5VRVcKJRJRsK9TRsyrHmX7K1eEvqgPPvXxSBk"
-# # 代币合约地址
-# token_address = "ENfpbQUM5xAnNP8ecyEQGFJ6KwbuPjMwv7ZjR29cDuAb"
-# # 查询列表
-# results = get_signatures_for_address_list(token_address, signature)
-# # 打印列表
-# for i, (block_time, signature) in enumerate(results, start=1):
-#     print(f"[{i}] blockTime: {block_time}, signature: {signature}")
+# 使用示例
+# 签名哈希
+signature = "GF5tJVe6PZV2DFVhSYRZQSxisoH9YS8fTnGGwBqNcCYJ1jmyBr5VRVcKJRJRsK9TRsyrHmX7K1eEvqgPPvXxSBk"
+# 代币合约地址
+token_address = "ENfpbQUM5xAnNP8ecyEQGFJ6KwbuPjMwv7ZjR29cDuAb"
+# 查询列表
+results = get_signatures_for_address_list(token_address, signature)
+# 打印列表
+for i, (block_time, signature) in enumerate(results, start=1):
+    print(f"[{i}] blockTime: {block_time}, signature: {signature}")

@@ -20,6 +20,12 @@ from rich.syntax import Syntax
 import json
 import time
 from datetime import datetime, timezone
+from enum import Enum
+
+class Platform(str, Enum):
+    Helius = "helius"
+    Tatum = "tatum"
+    Solana = "solana"
 
 ############################ RPC接口 #####################################
 rpc_api_map = {
@@ -210,8 +216,10 @@ token_address = "ENfpbQUM5xAnNP8ecyEQGFJ6KwbuPjMwv7ZjR29cDuAb"
 kol_nickname = "DNF"
 
 ########################## 主函数调用 ####################################
-# 初始化RPC接口 # ! solana.com接口有速率限制，连续请求必须间隔5秒以上
-rpc_api = rpc_api_map["helius"]
+# 选择平台 # ! solana.com接口有速率限制，连续请求必须间隔5秒以上
+platform = Platform.Solana
+# 初始化RPC接口
+rpc_api = rpc_api_map[platform]
 url = rpc_api["url"]
 headers = rpc_api["headers"]
 params = rpc_api["params"]
@@ -242,6 +250,8 @@ record_list = []
 print(f"Expect Signatures List Length: {len(results)}")
 # 打印列表 
 for i, (block_time, signature) in enumerate(results, start=1):
+    if platform == "solana":
+        time.sleep(5)
     # 获取Signer地址 
     signer = get_signer(url, headers, params, signature)
     # TODO 添加容错处理

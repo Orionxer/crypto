@@ -40,7 +40,7 @@ def friend_print(response):
 
 def get_signer(signature):
     response = get_trasaction(signature)
-    # friend_print(response)
+    friend_print(response)
     # TODO 添加容错处理
     if 'result' in response:
         # 获取Signer地址(买入地址)  
@@ -53,9 +53,9 @@ def get_signer(signature):
 
 #################################################################################
 
-# # # 使用示例
-# signature = "3sSFXZwWnL9Cbu6nnCapBScFMJFujKoP8TKA37nYk3Ryi3b3yi1QbcCT5xs9mtGmS7CjUgiHESgC8tqbqQvcg4Lk"
-# # 获取Signer地址
-# signer = get_signer(signature)
-# print(f"Signature: {signature}, Signer: {signer}")
+# # 使用示例
+signature = "HoR9fAXWRUzr8YpUQgbxMBqtS92duY5bdWoGoGJxW3ZJeZSxSwdLpThPfTAdnh6BqQGqJhhSrUR6dnpr9hnyQfT"
+# 获取Signer地址
+signer = get_signer(signature)
+print(f"Signature: {signature}, Signer: {signer}")
 
