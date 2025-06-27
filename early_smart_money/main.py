@@ -101,6 +101,7 @@ def init_database(db_name, symbol, record):
     conn.close()
     return last_record
 
+# TODO 去重，如果出现更早的时间则替换同一个Signer的记录
 def insert_records(db_name, record_list):
     conn = sqlite3.connect(db_name)
     cursor = conn.cursor()
@@ -209,15 +210,15 @@ def get_signatures_for_address_list(url, headers, params, address, signature, nu
 ########################## 补充初始数据 ##################################
 # https://solscan.io/ 根据哈希签名查询其他需要补充数据
 # 签名哈希
-signature = "GF5tJVe6PZV2DFVhSYRZQSxisoH9YS8fTnGGwBqNcCYJ1jmyBr5VRVcKJRJRsK9TRsyrHmX7K1eEvqgPPvXxSBk"
+signature = "451ruFuMpaPHd1HZw44CfhqzqdJ3h4qgkdCK6Zbx2ro4ZHQMjm55mrSYG82qudXry9SihBbKQ7VqoyYt9miPBozL"
 # 代币地址 # ? 暂时无法通过签名哈希查询出代币地址
-token_address = "ENfpbQUM5xAnNP8ecyEQGFJ6KwbuPjMwv7ZjR29cDuAb"
+token_address = "1zJX5gRnjLgmTpq5sVwkq69mNDQkCemqoasyjaPW6jm"
 # 车头昵称
 kol_nickname = "DNF"
 
 ########################## 主函数调用 ####################################
 # 选择平台 # ! solana.com接口有速率限制，连续请求必须间隔5秒以上
-platform = Platform.Solana
+platform = Platform.Helius
 # 初始化RPC接口
 rpc_api = rpc_api_map[platform]
 url = rpc_api["url"]
@@ -241,29 +242,42 @@ symbol = get_symbol(token_address)
 # print("table_name:", symbol)
 # 初始化数据库,并获取最后一条记录
 last_record = init_database(db_name, symbol, record)
-# print(last_record)
-signature = last_record["Signature"]
-print("The last Signature is:",signature)
-# 查询列表
-results = get_signatures_for_address_list(url, headers, params, token_address, signature, 10)
-record_list = []
-print(f"Expect Signatures List Length: {len(results)}")
-# 打印列表 
-for i, (block_time, signature) in enumerate(results, start=1):
-    if platform == "solana":
-        time.sleep(5)
-    # 获取Signer地址 
-    signer = get_signer(url, headers, params, signature)
-    # TODO 添加容错处理
-    if signer is None:
-        print("[Error]: Get Signer Failed, stop...")
-        break
-    # 转换为可读的UTC时间 # ! 默认0时区，即 +UTC
-    human_time = datetime.fromtimestamp(block_time, tz=timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
-    print(f"[{i:03d}] BlockTime: {block_time}, HumanTime: {human_time}, Signature: {signature}, Signer: {signer}")
-    record_list.append({"BlockTime":block_time, "HumanTime":human_time, "Signature": signature, "Signer":signer})
-    if i == len(results):
-        print("=======================================")
-        print("Every valid data requst success")
-        insert_records(db_name, record_list)
+# TODO 当时间没有达到指定范围时，每次100个循环查询写入
+# ! 先查询一小时
+target_block_time = last_record["BlockTime"] + (1 * 3600) 
+while target_block_time > last_record["BlockTime"]:
+    # 不断更新最后一条记录的时间
+    last_record = init_database(db_name, symbol, record)
+    # print(last_record)
+    signature = last_record["Signature"]
+    print("The last Signature is:",signature)
+    # 查询列表
+    results = get_signatures_for_address_list(url, headers, params, token_address, signature, 100)
+    record_list = []
+    print(f"Expect Signatures List Length: {len(results)}")
+    # 打印列表 
+    for i, (block_time, signature) in enumerate(results, start=1):
+        if platform == "solana":
+            time.sleep(5)
+        # 获取Signer地址 
+        signer = get_signer(url, headers, params, signature)
+        # TODO 添加容错处理
+        if signer is None:
+            print("[Error]: Get Signer Failed, stop...")
+            break
+        # 转换为可读的UTC时间 # ! 默认0时区，即 +UTC
+        human_time = datetime.fromtimestamp(block_time, tz=timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
+        print(f"[{i:03d}] BlockTime: {block_time}, HumanTime: {human_time}, Signature: {signature}, Signer: {signer}")
+        record_list.append({"BlockTime":block_time, "HumanTime":human_time, "Signature": signature, "Signer":signer})
+        if i == len(results):
+            print("=======================================")
+            print("Every valid data requst success, inserting database...")
+            insert_records(db_name, record_list)
+            print("Inserting done, now wait 5s to continue or stpp manually")
+            time.sleep(5)
+
+if target_block_time < last_record["BlockTime"]:
+    print("All Success")
+    print("target_block_time",target_block_time)
+    print("last_record_BlockTime", last_record["BlockTime"])
 
