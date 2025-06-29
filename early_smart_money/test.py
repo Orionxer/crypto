@@ -2,6 +2,7 @@
 import json
 from rich import print
 from rich.syntax import Syntax
+import math
 
 # 签名哈希
 signature = "GF5tJVe6PZV2DFVhSYRZQSxisoH9YS8fTnGGwBqNcCYJ1jmyBr5VRVcKJRJRsK9TRsyrHmX7K1eEvqgPPvXxSBk"
@@ -92,14 +93,41 @@ def solana_com_block_transactions(slot):
     # TODO 筛选买入签名，并打印地址
     # TODO 数据库增加 Block 列
     for tx in data["result"]["transactions"]:
-        post_token_balances = tx.get("meta", {}).get("postTokenBalances", [])
-        pre_token_balances = tx.get("meta", {}).get("preTokenBalances", [])
-        all_balances = post_token_balances + pre_token_balances
+        meta = tx.get("meta", {})
+        post_token_balances = meta.get("postTokenBalances", [])
+        pre_token_balances = meta.get("preTokenBalances", [])
+        pre_balances = meta.get("preBalances", [])
+        post_balances = meta.get("postBalances", [])
+        fee = meta.get("fee", 0)
 
+        account_keys = tx.get("transaction", {}).get("accountKeys", [])
+        signer_info = next((a for a in account_keys if a.get("signer")), None)
+        if not signer_info:
+            continue
+        signer = signer_info["pubkey"]
+        try:
+            signer_index = [a["pubkey"] for a in account_keys].index(signer)
+        except ValueError:
+            continue
+
+        signature = tx.get("transaction", {}).get("signatures", [])
+        post_uiAmount = 0.0
+        pre_uiAmount = 0.0
+
+        all_balances = post_token_balances + pre_token_balances
         if any(balance.get("mint") == token_address for balance in all_balances):
-            signatures = tx.get("transaction", {}).get("signatures", [])
-            if signatures:
-                print(signatures[0])
+            for balance in post_token_balances:
+                if balance.get("mint") == token_address and balance.get("owner") == signer:
+                    post_uiAmount = balance.get("uiTokenAmount", {}).get("uiAmount", 0) or 0.0
+            for balance in pre_token_balances:
+                if balance.get("mint") == token_address and balance.get("owner") == signer:
+                    pre_uiAmount = balance.get("uiTokenAmount", {}).get("uiAmount", 0) or 0.0
+
+            if post_uiAmount > pre_uiAmount:
+                lamports_spent = pre_balances[signer_index] - post_balances[signer_index] - fee
+                sol_spent = lamports_spent / 1e9
+                print(signature[0], signer, f"买入数量: {post_uiAmount - pre_uiAmount}", f"花费 SOL: {sol_spent:.6f}")
+                print("fee", fee)
 
 
 solana_com_block_transactions(0)
