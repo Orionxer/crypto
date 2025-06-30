@@ -70,7 +70,7 @@ def solana_com_block_transactions(slot):
     url = "https://api.mainnet-beta.solana.com"
     headers = {"Content-Type": "application/json"}
 
-    slot = 339651252  # replace with your desired slot
+    # slot = 339651252  # replace with your desired slot
 
     payload = {
         "jsonrpc": "2.0",
@@ -90,44 +90,58 @@ def solana_com_block_transactions(slot):
     response = requests.post(url, json=payload, headers=headers)
     data = response.json()
     # 打印该Slot中所有买入卖出的代币的签名
-    # TODO 筛选买入签名，并打印地址
+    # [x] 筛选买入签名，并打印地址
+    block_time = data["result"]["blockTime"]
+    parent_slot = data["result"]["parentSlot"]
     # TODO 数据库增加 Block 列
     for tx in data["result"]["transactions"]:
         meta = tx.get("meta", {})
-        post_token_balances = meta.get("postTokenBalances", [])
-        pre_token_balances = meta.get("preTokenBalances", [])
-        pre_balances = meta.get("preBalances", [])
-        post_balances = meta.get("postBalances", [])
+        tx_data = tx.get("transaction", {})
+        account_keys = tx_data.get("accountKeys", [])
+        signature_list = tx_data.get("signatures", [])
         fee = meta.get("fee", 0)
 
-        account_keys = tx.get("transaction", {}).get("accountKeys", [])
+        # 判断交易是否涉及目标代币
+        balances = meta.get("postTokenBalances", []) + meta.get("preTokenBalances", [])
+        if not any(b.get("mint") == token_address for b in balances):
+            continue
+
+        # 获取交易发起地址信息 # 生成器表达式+next函数组合，用于找到第一个满足条件的元素
         signer_info = next((a for a in account_keys if a.get("signer")), None)
         if not signer_info:
             continue
         signer = signer_info["pubkey"]
+
+        # 获取交易发起地址在余额数组中的索引
         try:
+            # 列表推导式，将地址合并为列表后进行定位交易发起地址
             signer_index = [a["pubkey"] for a in account_keys].index(signer)
         except ValueError:
             continue
 
-        signature = tx.get("transaction", {}).get("signatures", [])
-        post_uiAmount = 0.0
-        pre_uiAmount = 0.0
+        # 提取签名前后该代币余额
+        def get_ui_amount(balances):
+            for b in balances:
+                if b.get("mint") == token_address and b.get("owner") == signer:
+                    amount_info = b.get("uiTokenAmount", {})
+                    return amount_info.get("uiAmount", 0.0)
+            return 0.0
 
-        all_balances = post_token_balances + pre_token_balances
-        if any(balance.get("mint") == token_address for balance in all_balances):
-            for balance in post_token_balances:
-                if balance.get("mint") == token_address and balance.get("owner") == signer:
-                    post_uiAmount = balance.get("uiTokenAmount", {}).get("uiAmount", 0) or 0.0
-            for balance in pre_token_balances:
-                if balance.get("mint") == token_address and balance.get("owner") == signer:
-                    pre_uiAmount = balance.get("uiTokenAmount", {}).get("uiAmount", 0) or 0.0
+        post_amount = get_ui_amount(meta.get("postTokenBalances", [])) or 0.0
+        pre_amount = get_ui_amount(meta.get("preTokenBalances", [])) or 0.0
 
-            if post_uiAmount > pre_uiAmount:
-                lamports_spent = pre_balances[signer_index] - post_balances[signer_index] - fee
-                sol_spent = lamports_spent / 1e9
-                print(signature[0], signer, f"买入数量: {post_uiAmount - pre_uiAmount}", f"花费 SOL: {sol_spent:.6f}")
-                print("fee", fee)
-
-
-solana_com_block_transactions(0)
+        # 判断是否是买入行为（余额增加）
+        if post_amount > pre_amount:
+            # preBalances[0] 和 postBalances[0] 代表SOL余额，单位 Lamports
+            lamports_spent = meta.get("preBalances", [0])[signer_index] - \
+                            meta.get("postBalances", [0])[signer_index] - fee
+            sol_spent = lamports_spent / 1e9
+            print(signature_list[0], signer,
+                f"Token: {post_amount - pre_amount}",
+                f"SOL: {sol_spent:.6f}")
+            # print("fee", fee)
+    return block_time
+# TODO 只有到达指定时间才能停止查询
+slot = 339651252
+block_time = solana_com_block_transactions(slot)
+print("BlockTime is:", block_time)
