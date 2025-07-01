@@ -1,17 +1,15 @@
-﻿
+﻿################## 输入内容 ##################
+# 1. 哈希签名 
+# 2. 代币地址
+# 3. 车头昵称
+# 4. 需要查询的时间范围
 
-# TODO 切换不同RPC接口的URL及其密钥(额度耗尽时可以切换)
-
-##################### 流程概述 ######################
-# 传入的参数为哈希签名以及车头昵称，以及需要查询的时间范围
-# 根据哈希签名查询代币地址，根据代币地址查询代币名称
-# 连接车头昵称+代币命名的数据库(如果不存在则自动新建)
-# 读取数据库最后一条记录，获取Unix时间戳和交易哈希
-    # 如果数据库为空说明是第一次新建
-# 根据最后一个交易哈希进行开始分页查询，并将结果插入数据库
-    # 查询结束条件(或)
-        # 达到规定的时间范围
-        # 已经查询到该代币的第一条交易数据
+######################## 流程概述 #########################
+# 根据代币地址查询代币名称
+# 连接车头昵称命名的数据库(如果不存在则自动新建)，例如"DNF.db"
+# 读取数据库表最后一条数据，获取区块信息，如果为空说明是新表
+# 根据最后一个Block区号继续向前查询，将查询结果写入数据库
+# 只有到达指定的时间范围才能停止向前查询
 
 import sqlite3
 import requests
@@ -22,10 +20,12 @@ import time
 from datetime import datetime, timezone
 from enum import Enum
 
+# 【x] 切换不同RPC接口的URL及其密钥(额度耗尽时可以切换)
 class Platform(str, Enum):
     Helius = "helius"
     Tatum = "tatum"
     Solana = "solana"
+
 
 ############################ RPC接口 #####################################
 rpc_api_map = {
@@ -64,8 +64,6 @@ def friend_print(response):
     print(syntax)
 
 ############################ 数据库 #####################################
-# def create_database():
-
 # 初始化数据库
 def init_database(db_name, symbol, record):
     # 连接数据库 # ** 如果数据库不存在会自动新建 
@@ -85,15 +83,28 @@ def init_database(db_name, symbol, record):
         # 表不存在，创建一个新表
         cursor.execute(f'''
             CREATE TABLE IF NOT EXISTS {symbol} (
+                Block     INTEGER,
                 BlockTime INTEGER,
                 HumanTime TEXT,
+                SOL       REAL,
+                Token     REAL,
                 Signature TEXT,
                 Signer TEXT
             )
         ''')
         # 插入第一条数据
-        cursor.execute(f"INSERT INTO {symbol} (BlockTime, HumanTime, Signature, Signer) VALUES (?, ?, ?, ?)",
-                        (record["BlockTime"], record["HumanTime"], record["Signature"], record["Signer"]))
+        cursor.execute(f"INSERT INTO {symbol} \
+                       (Block, BlockTime, HumanTime, SOL, Token, Signature, Signer) \
+                       VALUES (?, ?, ?, ?, ?, ?, ?)",
+                        (
+                            record["Block"], 
+                            record["BlockTime"], 
+                            record["HumanTime"],
+                            record["SOL"],
+                            record["Token"],
+                            record["Signature"],
+                            record["Signer"]
+                        ))
         # 提交事务 # TODO 每次分页查询完整结束后，调用一次commit
         conn.commit()
         # 第一条就是最后一条
@@ -133,7 +144,16 @@ def get_symbol(token_address):
     
 
 ########################## 查询交易 ####################################
+
+def get_ui_amount(balances, signer):
+    for b in balances:
+        if b.get("mint") == token_address and b.get("owner") == signer:
+            amount_info = b.get("uiTokenAmount", {})
+            return amount_info.get("uiAmount", 0.0)
+    return 0.0
+
 def get_transaction(url, headers, params, signature):
+    result = {}
     payload = {
         "jsonrpc": "2.0",
         "id": 1,
@@ -149,33 +169,27 @@ def get_transaction(url, headers, params, signature):
     }
     try:
         response = requests.post(url, params=params, headers=headers, json=payload, timeout=10)
+        data = response.json()
+        meta = data["result"]["meta"]
+        # 获取Slot(Block区块信息)
+        slot = data["result"]["slot"]
+        # 获取时间
+        block_time = data["result"]["blockTime"]
+        # 转换可读时间，0时区
+        human_time = datetime.fromtimestamp(block_time, tz=timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
+        # 获取签名地址
+        signer = data["result"]["transaction"]["message"]["accountKeys"][0]
+        # 计算花费的SOL(暂不考虑优先费以及手续费)
+        sol_spent = (meta.get("preBalances", [0])[0] - meta.get("postBalances", [0])[0]) / 1e9
+        # 获取买入的代币数量
+        post_amount = get_ui_amount(meta.get("postTokenBalances", []), signer) or 0.0
+        pre_amount = get_ui_amount(meta.get("preTokenBalances", []), signer) or 0.0
+        token = post_amount - pre_amount
+        result = {"Block":slot, "BlockTime":block_time, "HumanTime":human_time, "SOL":sol_spent, "Token":token,"Signature": signature, "Signer":signer}
         # friend_print(response.json())
-        return response.json()
+        # return response.json()
+        return result
     except Exception as e:
-        print(f"请求失败：{e}")
-        return {"error": str(e)}
-
-# 查询指定交易哈希之前的交易哈希列表
-def get_signatures_for_address(url, headers, params, address, signature, num):
-    payload = {
-        "jsonrpc": "2.0",
-        "id": 1,
-        "method": "getSignaturesForAddress",
-        "params": [
-            address,
-            {
-                "limit": num,
-                "before": signature
-            }
-        ]
-    }
-    try:
-        response = requests.post(url, headers=headers, params=params, json=payload, timeout=10)
-        return response.json()
-    except requests.exceptions.Timeout:
-        print("请求超时")
-        return {"error": "timeout"}
-    except requests.exceptions.RequestException as e:
         print(f"请求失败：{e}")
         return {"error": str(e)}
     
@@ -192,27 +206,13 @@ def get_signer(url, headers, params, signature):
         first_account_key = None
     return first_account_key
 
-def get_signatures_for_address_list(url, headers, params, address, signature, num):
-    # 查询结果
-    response = get_signatures_for_address(url, headers, params, address, signature, num)
-    # 打印结果
-    # friend_print(response)
-    # ** 如果"err"不为null，说明交易异常，则忽略该签名
-    results = []
-    for transaction in response.get("result", []):
-        if transaction.get("err") is None:
-            block_time = transaction.get("blockTime")
-            signature = transaction.get("signature")
-            results.append((block_time, signature))
-    return results
-
 
 ########################## 补充初始数据 ##################################
 # https://solscan.io/ 根据哈希签名查询其他需要补充数据
 # 签名哈希
-signature = "451ruFuMpaPHd1HZw44CfhqzqdJ3h4qgkdCK6Zbx2ro4ZHQMjm55mrSYG82qudXry9SihBbKQ7VqoyYt9miPBozL"
+signature = "GF5tJVe6PZV2DFVhSYRZQSxisoH9YS8fTnGGwBqNcCYJ1jmyBr5VRVcKJRJRsK9TRsyrHmX7K1eEvqgPPvXxSBk"
 # 代币地址 # ? 暂时无法通过签名哈希查询出代币地址
-token_address = "1zJX5gRnjLgmTpq5sVwkq69mNDQkCemqoasyjaPW6jm"
+token_address = "ENfpbQUM5xAnNP8ecyEQGFJ6KwbuPjMwv7ZjR29cDuAb"
 # 车头昵称
 kol_nickname = "DNF"
 
@@ -224,16 +224,9 @@ rpc_api = rpc_api_map[platform]
 url = rpc_api["url"]
 headers = rpc_api["headers"]
 params = rpc_api["params"]
-# record = get_signatures_for_address(url, headers, params, token_address, signature, 1)
 # 查询车头第一次买入
-response = get_transaction(url, headers, params, signature)
-# 获取时间
-block_time = response["result"]["blockTime"]
-# 转换可读时间，0时区
-human_time = datetime.fromtimestamp(block_time, tz=timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
-# 获取买入地址
-signer = response["result"]["transaction"]["message"]["accountKeys"][0]
-record = {"BlockTime":block_time, "HumanTime":human_time, "Signature": signature, "Signer":signer}
+record = get_transaction(url, headers, params, signature)
+# print(record)
 # print(record)
 # 拼接数据库名称
 db_name = kol_nickname + ".db"
@@ -242,42 +235,4 @@ symbol = get_symbol(token_address)
 # print("table_name:", symbol)
 # 初始化数据库,并获取最后一条记录
 last_record = init_database(db_name, symbol, record)
-# TODO 当时间没有达到指定范围时，每次100个循环查询写入
-# ! 先查询一小时
-target_block_time = last_record["BlockTime"] + (1 * 3600) 
-while target_block_time > last_record["BlockTime"]:
-    # 不断更新最后一条记录的时间
-    last_record = init_database(db_name, symbol, record)
-    # print(last_record)
-    signature = last_record["Signature"]
-    print("The last Signature is:",signature)
-    # 查询列表
-    results = get_signatures_for_address_list(url, headers, params, token_address, signature, 100)
-    record_list = []
-    print(f"Expect Signatures List Length: {len(results)}")
-    # 打印列表 
-    for i, (block_time, signature) in enumerate(results, start=1):
-        if platform == "solana":
-            time.sleep(5)
-        # 获取Signer地址 
-        signer = get_signer(url, headers, params, signature)
-        # TODO 添加容错处理
-        if signer is None:
-            print("[Error]: Get Signer Failed, stop...")
-            break
-        # 转换为可读的UTC时间 # ! 默认0时区，即 +UTC
-        human_time = datetime.fromtimestamp(block_time, tz=timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
-        print(f"[{i:03d}] BlockTime: {block_time}, HumanTime: {human_time}, Signature: {signature}, Signer: {signer}")
-        record_list.append({"BlockTime":block_time, "HumanTime":human_time, "Signature": signature, "Signer":signer})
-        if i == len(results):
-            print("=======================================")
-            print("Every valid data requst success, inserting database...")
-            insert_records(db_name, record_list)
-            print("Inserting done, now wait 5s to continue or stpp manually")
-            time.sleep(5)
-
-if target_block_time < last_record["BlockTime"]:
-    print("All Success")
-    print("target_block_time",target_block_time)
-    print("last_record_BlockTime", last_record["BlockTime"])
-
+print(last_record)
