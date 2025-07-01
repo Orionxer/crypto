@@ -193,19 +193,76 @@ def get_transaction(url, headers, params, signature):
         print(f"请求失败：{e}")
         return {"error": str(e)}
     
-def get_signer(url, headers, params, signature):
-    response = get_transaction(url, headers, params, signature)
-    # friend_print(response)
-    # TODO 添加容错处理
-    if 'result' in response:
-        # 获取Signer地址(买入地址)  
-        first_account_key = response["result"]["transaction"]["message"]["accountKeys"][0]
-    else:
-        print("======= Error =======")
-        friend_print(response)
-        first_account_key = None
-    return first_account_key
+def get_block_transactions(url, headers, params, slot):
+    payload = {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "getBlock",
+        "params": [
+            slot, 
+            {
+                "encoding": "json",
+                "maxSupportedTransactionVersion": 0,
+                "transactionDetails": "accounts",
+                "rewards": None
+            }
+        ]
+    }
+    record_list = []
+    try:
+        response = requests.post(url, params=params, headers=headers, json=payload, timeout=10)
+        data = response.json()
+        block_time = data["result"]["blockTime"]
+        parent_slot = data["result"]["parentSlot"]
+        human_time = datetime.fromtimestamp(block_time, tz=timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
+        for tx in data["result"]["transactions"]:
+            meta = tx.get("meta", {})
+            tx_data = tx.get("transaction", {})
+            account_keys = tx_data.get("accountKeys", [])
+            signature_list = tx_data.get("signatures", [])
 
+            # 判断交易是否涉及目标代币
+            balances = meta.get("postTokenBalances", []) + meta.get("preTokenBalances", [])
+            if not any(b.get("mint") == token_address for b in balances):
+                continue
+
+            # 获取交易发起地址信息 # 生成器表达式+next函数组合，用于找到第一个满足条件的元素
+            signer_info = next((a for a in account_keys if a.get("signer")), None)
+            if not signer_info:
+                continue
+            signer = signer_info["pubkey"]
+
+            # 获取交易发起地址在余额数组中的索引
+            try:
+                # 列表推导式，将地址合并为列表后进行定位交易发起地址
+                signer_index = [a["pubkey"] for a in account_keys].index(signer)
+            except ValueError:
+                continue
+
+            post_amount = get_ui_amount(meta.get("postTokenBalances", []), signer) or 0.0
+            pre_amount = get_ui_amount(meta.get("preTokenBalances", []), signer) or 0.0
+            token = post_amount - pre_amount
+
+            # 判断是否是买入行为（余额增加）
+            if post_amount > pre_amount:
+                # preBalances[0] 和 postBalances[0] 代表SOL余额，单位 Lamports
+                sol_spent = (meta.get("preBalances", [0])[signer_index] - meta.get("postBalances", [0])[signer_index]) / 1e9
+                # print(signature_list[0], signer, f"Token: {post_amount - pre_amount}", f"SOL: {sol_spent:.6f}")
+                record = {
+                    "ParentBlock": parent_slot,
+                    "Block":slot,
+                    "BlockTime":block_time,
+                    "HumanTime":human_time,
+                    "SOL":sol_spent,
+                    "Token":token,
+                    "Signature": signature_list[0],
+                    "Signer":signer
+                }
+                record_list.append(record)
+        return list(reversed(record_list)) # 反转列表
+    except Exception as e:
+        print(f"请求失败：{e}")
+        return {"error": str(e)}
 
 ########################## 补充初始数据 ##################################
 # https://solscan.io/ 根据哈希签名查询其他需要补充数据
@@ -227,12 +284,22 @@ params = rpc_api["params"]
 # 查询车头第一次买入
 record = get_transaction(url, headers, params, signature)
 # print(record)
-# print(record)
 # 拼接数据库名称
 db_name = kol_nickname + ".db"
-# print("database_name:", db_name)
+# 获取代币名称（表名）
 symbol = get_symbol(token_address)
-# print("table_name:", symbol)
 # 初始化数据库,并获取最后一条记录
 last_record = init_database(db_name, symbol, record)
-print(last_record)
+# print(last_record)
+record_list = get_block_transactions(url, headers, params, last_record["Block"])
+# print(record_list)
+# 指定查询结束的时间，暂定1小时
+end_time = last_record["BlockTime"] + 3600
+# 查找目标 Signature 的索引
+for i, d in enumerate(record_list):
+    if d.get('Signature') == signature:
+        for item in record_list[i+1:]:  # 从目标 Signature 之后的元素开始打印
+            print(item)
+        break
+    
+

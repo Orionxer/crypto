@@ -142,6 +142,6 @@ def solana_com_block_transactions(slot):
             # print("fee", fee)
     return block_time
 # TODO 只有到达指定时间才能停止查询
-slot = 339651252
+slot = 339651254
 block_time = solana_com_block_transactions(slot)
 print("BlockTime is:", block_time)
