@@ -66,6 +66,8 @@ def friend_print(response):
 ############################ 数据库 #####################################
 # 初始化数据库
 def init_database(db_name, symbol, record):
+    if symbol is None or record is None:
+        return
     # 连接数据库 # ** 如果数据库不存在会自动新建 
     conn = sqlite3.connect(db_name)
     conn.row_factory = sqlite3.Row
@@ -112,13 +114,23 @@ def init_database(db_name, symbol, record):
     conn.close()
     return last_record
 
-# TODO 去重，如果出现更早的时间则替换同一个Signer的记录
+# * 待定：去重，如果出现更早的时间则替换同一个Signer的记录
 def insert_records(db_name, record_list):
     conn = sqlite3.connect(db_name)
     cursor = conn.cursor()
     for record in record_list:
-        cursor.execute(f"INSERT INTO {symbol} (BlockTime, HumanTime, Signature, Signer) VALUES (?, ?, ?, ?)",
-                        (record["BlockTime"], record["HumanTime"], record["Signature"], record["Signer"]))
+        cursor.execute(f"INSERT INTO {symbol} \
+                       (Block, BlockTime, HumanTime, SOL, Token, Signature, Signer) \
+                       VALUES (?, ?, ?, ?, ?, ?, ?)",
+                        (
+                            record["Block"], 
+                            record["BlockTime"], 
+                            record["HumanTime"],
+                            record["SOL"],
+                            record["Token"],
+                            record["Signature"],
+                            record["Signer"]
+                        ))
     conn.commit()
     conn.close()
 
@@ -140,7 +152,7 @@ def get_symbol(token_address):
         return response.json()["symbol"]
     except Exception as e:
         print(f"请求失败：{e}")
-        return {"error": str(e)}
+        return None
     
 
 ########################## 查询交易 ####################################
@@ -191,7 +203,7 @@ def get_transaction(url, headers, params, signature):
         return result
     except Exception as e:
         print(f"请求失败：{e}")
-        return {"error": str(e)}
+        return None
     
 def get_block_transactions(url, headers, params, slot):
     payload = {
@@ -208,7 +220,8 @@ def get_block_transactions(url, headers, params, slot):
             }
         ]
     }
-    record_list = []
+    record_list = {}
+    transactions = []
     try:
         response = requests.post(url, params=params, headers=headers, json=payload, timeout=10)
         data = response.json()
@@ -239,10 +252,10 @@ def get_block_transactions(url, headers, params, slot):
             except ValueError:
                 continue
 
+            # TODO 剩余创世哈希没有查询出来
             post_amount = get_ui_amount(meta.get("postTokenBalances", []), signer) or 0.0
             pre_amount = get_ui_amount(meta.get("preTokenBalances", []), signer) or 0.0
             token = post_amount - pre_amount
-
             # 判断是否是买入行为（余额增加）
             if post_amount > pre_amount:
                 # preBalances[0] 和 postBalances[0] 代表SOL余额，单位 Lamports
@@ -258,11 +271,18 @@ def get_block_transactions(url, headers, params, slot):
                     "Signature": signature_list[0],
                     "Signer":signer
                 }
-                record_list.append(record)
-        return list(reversed(record_list)) # 反转列表
+                transactions.append(record)
+        record_list = {
+            "ParentBlock": parent_slot, 
+            "Block": slot, 
+            "BlockTime": block_time, 
+            "HumanTime": human_time, 
+            "transactions": list(reversed(transactions))
+            } # 反转列表
+        return record_list
     except Exception as e:
         print(f"请求失败：{e}")
-        return {"error": str(e)}
+        return None
 
 ########################## 补充初始数据 ##################################
 # https://solscan.io/ 根据哈希签名查询其他需要补充数据
@@ -283,23 +303,51 @@ headers = rpc_api["headers"]
 params = rpc_api["params"]
 # 查询车头第一次买入
 record = get_transaction(url, headers, params, signature)
-# print(record)
+if record is None: exit()
 # 拼接数据库名称
 db_name = kol_nickname + ".db"
 # 获取代币名称（表名）
 symbol = get_symbol(token_address)
+if symbol is None: exit()
 # 初始化数据库,并获取最后一条记录
 last_record = init_database(db_name, symbol, record)
 # print(last_record)
 record_list = get_block_transactions(url, headers, params, last_record["Block"])
+if record_list is None: exit()
 # print(record_list)
-# 指定查询结束的时间，暂定1小时
-end_time = last_record["BlockTime"] + 3600
-# 查找目标 Signature 的索引
-for i, d in enumerate(record_list):
-    if d.get('Signature') == signature:
-        for item in record_list[i+1:]:  # 从目标 Signature 之后的元素开始打印
-            print(item)
-        break
-    
 
+# 从头开始找目标哈希签名
+transacion_list = record_list["transactions"]
+i = next((idx for idx, d in enumerate(transacion_list) if d.get('Signature') == last_record["Signature"]), None)
+start = i + 1 if i is not None else 0
+# 如果数据库最新的哈希不是当前区块的最后一个哈希，则位于目标哈希前的哈希插入数据库
+if start < len(transacion_list):
+    new_list = transacion_list[start:]
+    insert_records(db_name, new_list)
+# 如果目标哈希是当前区块的最后一个签名，则说明数据块完整存储了区块信息
+# 获取上一个Block
+parent_block = record_list["ParentBlock"]
+start_time = record_list["BlockTime"]
+# 指定查询结束的时间 # ? 时间可以参考GMGN的初始时间进行适当设置
+end_time = start_time - 3600
+while start_time > end_time:
+    # 获取上一个区块的交易信息
+    record_list = get_block_transactions(url, headers, params, parent_block)
+    if record_list is None:
+        # 可能是网络接口限制原因，等待5秒后重试
+        print(f"Retrying after 5 seconds...")
+        time.sleep(5)
+        continue
+    start_time = record_list["BlockTime"]
+    parent_block = record_list["ParentBlock"]
+    if not record_list["transactions"]:
+        print(f"Skip Block: {record_list['Block']} - Time: {record_list['HumanTime']} - No transactions found for {symbol}")
+        continue
+    # 打印当前区块的交易记录
+    for record in record_list["transactions"]:
+        print(f"Time: {record['HumanTime']}, SOL: {record['SOL']}, Signature: {record['Signature']}, Signer: {record['Signer']}")
+    # 插入新查询的记录
+    insert_records(db_name, record_list["transactions"])
+
+print("=========================================")
+print("Successfully completed the query")
