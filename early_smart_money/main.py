@@ -252,10 +252,10 @@ def get_block_transactions(url, headers, params, slot):
             except ValueError:
                 continue
 
-            # TODO 剩余创世哈希没有查询出来
             post_amount = get_ui_amount(meta.get("postTokenBalances", []), signer) or 0.0
             pre_amount = get_ui_amount(meta.get("preTokenBalances", []), signer) or 0.0
             token = post_amount - pre_amount
+            # * 缺少代币创建哈希，但不影响功能。可以通过getSignatureForAddress查询到哈希签名后去solscan验证
             # 判断是否是买入行为（余额增加）
             if post_amount > pre_amount:
                 # preBalances[0] 和 postBalances[0] 代表SOL余额，单位 Lamports
