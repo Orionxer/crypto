@@ -287,9 +287,9 @@ def get_block_transactions(url, headers, params, slot):
 ########################## 补充初始数据 ##################################
 # https://solscan.io/ 根据哈希签名查询其他需要补充数据
 # 签名哈希
-signature = "GF5tJVe6PZV2DFVhSYRZQSxisoH9YS8fTnGGwBqNcCYJ1jmyBr5VRVcKJRJRsK9TRsyrHmX7K1eEvqgPPvXxSBk"
+signature = "451ruFuMpaPHd1HZw44CfhqzqdJ3h4qgkdCK6Zbx2ro4ZHQMjm55mrSYG82qudXry9SihBbKQ7VqoyYt9miPBozL"
 # 代币地址 # ? 暂时无法通过签名哈希查询出代币地址
-token_address = "ENfpbQUM5xAnNP8ecyEQGFJ6KwbuPjMwv7ZjR29cDuAb"
+token_address = "1zJX5gRnjLgmTpq5sVwkq69mNDQkCemqoasyjaPW6jm"
 # 车头昵称
 kol_nickname = "DNF"
 
