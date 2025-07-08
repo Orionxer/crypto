@@ -15,5 +15,6 @@ def print_common_values(db_path, table1, table2, column):
     
     conn.close()
 
+# TODO 输出序号，加入总数
 # 使用示例
 print_common_values('../DNF.db', 'GOONC', 'KLED', 'Signer')
