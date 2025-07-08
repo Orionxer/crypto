@@ -256,9 +256,12 @@ def get_block_transactions(url, headers, params, slot):
             pre_amount = get_ui_amount(meta.get("preTokenBalances", []), signer) or 0.0
             token = post_amount - pre_amount
             # * 缺少代币创建哈希，但不影响功能。可以通过getSignatureForAddress查询到哈希签名后去solscan验证
-            # 判断是否是买入行为（余额增加）
+            # 判断买入行为（Token增加）
             if post_amount > pre_amount:
                 # preBalances[0] 和 postBalances[0] 代表SOL余额，单位 Lamports
+                # ! SOL计算不一定准确，地址可能一开始并不持有SOL，通过USDT获取WSOL进而完成交易
+                # ! 或者该签名是添加流动性 / 撤出流动性
+                # 但是本质上签名地址的Token余额是增加了，可以根据签名哈希进一步查询细节
                 sol_spent = (meta.get("preBalances", [0])[signer_index] - meta.get("postBalances", [0])[signer_index]) / 1e9
                 # print(signature_list[0], signer, f"Token: {post_amount - pre_amount}", f"SOL: {sol_spent:.6f}")
                 record = {
