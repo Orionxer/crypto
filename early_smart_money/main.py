@@ -134,27 +134,6 @@ def insert_records(db_name, record_list):
     conn.commit()
     conn.close()
 
-########################## 查询Symbol ##################################
-# 文档 ： https://docs.tatum.io/reference/gettokensv4
-def get_symbol(token_address):
-    url = "https://api.tatum.io/v4/data/tokens"
-    headers = {
-        "accept": "application/json",
-        "x-api-key": "t-685a3f207b2cac50cedeba6f-0543689c7fa6497bbcf314bc"
-    }
-    params = {
-        "chain": "solana",
-        "tokenAddress": token_address
-    }
-    try:
-        response = requests.get(url, headers=headers, params=params, timeout=10)
-        # print(response.json())
-        return response.json()["symbol"]
-    except Exception as e:
-        print(f"请求失败：{e}")
-        return None
-    
-
 ########################## 查询交易 ####################################
 
 def get_ui_amount(balances, signer):
@@ -289,12 +268,44 @@ def get_block_transactions(url, headers, params, slot):
 
 ########################## 补充初始数据 ##################################
 # https://solscan.io/ 根据哈希签名查询其他需要补充数据
+
+# 查询截止时间暂定gmgn.ai上线币种时间,时间均为UTC+0
+input_map = {
+    "DNF": {
+        "GOONC": {
+            "symbol": "GOONC",
+            "token_address": "ENfpbQUM5xAnNP8ecyEQGFJ6KwbuPjMwv7ZjR29cDuAb",
+            "signature": "GF5tJVe6PZV2DFVhSYRZQSxisoH9YS8fTnGGwBqNcCYJ1jmyBr5VRVcKJRJRsK9TRsyrHmX7K1eEvqgPPvXxSBk",
+            "deadline": "2025-05-13 02:20:28"
+        },
+        "KLED": {
+            "symbol": "KLED",
+            "token_address": "1zJX5gRnjLgmTpq5sVwkq69mNDQkCemqoasyjaPW6jm",
+            "signature": "451ruFuMpaPHd1HZw44CfhqzqdJ3h4qgkdCK6Zbx2ro4ZHQMjm55mrSYG82qudXry9SihBbKQ7VqoyYt9miPBozL",
+            "deadline": "2025-05-22 00:41:00"
+        }
+    }
+}
+
+# ? ======================
+# 从上方选择需要查询的信息
+# ? ======================
+token_info = { 
+    "kol": "DNF", 
+    "symbol": "KLED"
+}
 # 签名哈希
-signature = "451ruFuMpaPHd1HZw44CfhqzqdJ3h4qgkdCK6Zbx2ro4ZHQMjm55mrSYG82qudXry9SihBbKQ7VqoyYt9miPBozL"
-# 代币地址 # ? 暂时无法通过签名哈希查询出代币地址
-token_address = "1zJX5gRnjLgmTpq5sVwkq69mNDQkCemqoasyjaPW6jm"
+signature = input_map[token_info["kol"]][token_info["symbol"]]["signature"]
+# 代币地址
+token_address = input_map[token_info["kol"]][token_info["symbol"]]["token_address"]
+# 获取代币名称（表名）
+symbol = token_info["symbol"]
 # 车头昵称
-kol_nickname = "DNF"
+kol = token_info["kol"]
+# 查询截止时间
+deadline_str = input_map[token_info["kol"]][token_info["symbol"]]["deadline"]
+# 将字符串转换为UTC+0 Unix时间戳
+deadline = int(datetime.strptime(deadline_str, "%Y-%m-%d %H:%M:%S").replace(tzinfo=timezone.utc).timestamp())
 
 ########################## 主函数调用 ####################################
 # 选择平台 # ! solana.com接口有速率限制，连续请求必须间隔5秒以上
@@ -308,9 +319,7 @@ params = rpc_api["params"]
 record = get_transaction(url, headers, params, signature)
 if record is None: exit()
 # 拼接数据库名称
-db_name = kol_nickname + ".db"
-# 获取代币名称（表名）
-symbol = get_symbol(token_address)
+db_name = kol + ".db"
 if symbol is None: exit()
 # 初始化数据库,并获取最后一条记录
 last_record = init_database(db_name, symbol, record)
@@ -332,8 +341,9 @@ if start < len(transacion_list):
 parent_block = record_list["ParentBlock"]
 start_time = record_list["BlockTime"]
 # 指定查询结束的时间 # ? 时间可以参考GMGN的初始时间进行适当设置
-end_time = start_time - 3600
-while start_time > end_time:
+# end_time = start_time - 3600
+# while start_time > start_time:
+while start_time > deadline:
     # 获取上一个区块的交易信息
     record_list = get_block_transactions(url, headers, params, parent_block)
     if record_list is None:
