@@ -23,9 +23,19 @@ from enum import Enum
 # 【x] 切换不同RPC接口的URL及其密钥(额度耗尽时可以切换)
 class Platform(str, Enum):
     Helius = "helius"
+    QuickNode = "quicknode"
+    Alchemy = "alchemy"
+    Syndica = "syndica"
     Tatum = "tatum"
     Solana = "solana"
 
+########################### 官网 ################################
+# Helius https://dashboard.helius.dev/usage
+# QuickNode https://dashboard.quicknode.com/
+# Alchemy https://dashboard.alchemy.com/
+# Syndica https://app.syndica.io/manage/rpc-nodes
+# Tatum https://dashboard.tatum.io/usage
+# Solana https://docs.solana.com/ # ! 免费，但接口有速率限制，连续请求必须间隔5秒以上
 
 ############################ RPC接口 #####################################
 rpc_api_map = {
@@ -38,6 +48,30 @@ rpc_api_map = {
         "params": {
             "api-key": "99068046-8305-4d16-9c03-b7e6ae63250b"
         }
+    },
+    "quicknode": {
+        "url": "https://soft-red-county.solana-mainnet.quiknode.pro/cae307fcc1b8dc0f3e4c09e6e6fa9e325ad3d4fc",
+        "headers": {
+            "accept": "application/json",
+            "content-type": "application/json"
+        },
+        "params": {}
+    },
+    "alchemy": {
+        "url": "https://solana-mainnet.g.alchemy.com/v2/h4_vq3i-vMXxBOmni7V3NxEIYvPjLAib",
+        "headers": {
+            "accept": "application/json",
+            "content-type": "application/json"
+        },
+        "params": {}
+    },
+    "syndica": {
+        "url": "https://solana-mainnet.api.syndica.io/api-key/CGeFQAHXntpx4rJ3PnSr1wVqprK8mRfWGTm4QY41SAeooTq8AWhhFDDE9fH8QJLBHp3JbAEi23tbJGX2q5ZQoz1QANFTaKkMFF",
+        "headers": {
+            "accept": "application/json",
+            "content-type": "application/json"
+        },
+        "params": {}
     },
     "tatum": {
         "url": "https://solana-mainnet.gateway.tatum.io/",
@@ -273,13 +307,11 @@ def get_block_transactions(url, headers, params, slot):
 input_map = {
     "DNF": {
         "GOONC": {
-            "symbol": "GOONC",
             "token_address": "ENfpbQUM5xAnNP8ecyEQGFJ6KwbuPjMwv7ZjR29cDuAb",
             "signature": "GF5tJVe6PZV2DFVhSYRZQSxisoH9YS8fTnGGwBqNcCYJ1jmyBr5VRVcKJRJRsK9TRsyrHmX7K1eEvqgPPvXxSBk",
             "deadline": "2025-05-13 02:20:28"
         },
         "KLED": {
-            "symbol": "KLED",
             "token_address": "1zJX5gRnjLgmTpq5sVwkq69mNDQkCemqoasyjaPW6jm",
             "signature": "451ruFuMpaPHd1HZw44CfhqzqdJ3h4qgkdCK6Zbx2ro4ZHQMjm55mrSYG82qudXry9SihBbKQ7VqoyYt9miPBozL",
             "deadline": "2025-05-22 00:41:00"
@@ -308,7 +340,7 @@ deadline_str = input_map[token_info["kol"]][token_info["symbol"]]["deadline"]
 deadline = int(datetime.strptime(deadline_str, "%Y-%m-%d %H:%M:%S").replace(tzinfo=timezone.utc).timestamp())
 
 ########################## 主函数调用 ####################################
-# 选择平台 # ! solana.com接口有速率限制，连续请求必须间隔5秒以上
+# ? 选择平台
 platform = Platform.Helius
 # 初始化RPC接口
 rpc_api = rpc_api_map[platform]
@@ -340,7 +372,7 @@ if start < len(transacion_list):
 # 获取上一个Block
 parent_block = record_list["ParentBlock"]
 start_time = record_list["BlockTime"]
-# 指定查询结束的时间 # ? 时间可以参考GMGN的初始时间进行适当设置
+# 指定查询结束的时间 # * 时间可以参考GMGN的初始时间进行适当设置
 # end_time = start_time - 3600
 # while start_time > start_time:
 while start_time > deadline:
