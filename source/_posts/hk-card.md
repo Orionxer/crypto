@@ -4,10 +4,13 @@ categories:
   - default
 tags:
   - default
-banner_img: /images/default.jpg
-index_img: /images/default.jpg
+banner_img: /images/hk-card.jpg
+index_img: /images/hk-card.jpg
 date: 2025-04-24 16:36:34
+excerpt: 众安，汇丰，香港中银，微信香港钱包，盈利证券开户及其相关优惠。
 ---
+
+> 众安银行，香港汇丰银行，中国银行(香港)，微信香港钱包开户，以及香港盈利证券开户。包含转账流程以及优惠返利介绍。
 
 ## 1.众安银行
 > 使用身份证开通，大约10分钟开户完成，注意反光问题
@@ -30,7 +33,7 @@ L6U2A9
 - [x] 八达通第二次充值**800HKD**，步骤一样
 - [x] 查看众安APP的账单，发现**20HKD+80HKD**已经作为余额到账了
 - [x] 八达通点击**退款及删除**，退款立即到账，但是需要扣除**11HKD手续费**，实际应到账**939HKD**。如果以后需要再去香港，八达通也可以保留。
-- [x] 其他任务可以查看众安APP，均已ZA Coin的形式发放，大概**7-10HKD**
+- [x] 其他任务可以查看众安APP，均已ZA Coin的形式发放，价值大概**7-10HKD**
 
 ### 1.3 众安转数快
 - [香港中银FPS入账众安zabank](https://www.xiaohongshu.com/explore/67da4f4c000000001c002a12?xsec_token=ABB0NGlzGZ3cOekB6yDJa6ULfgOJpji9v1fyvGa5vgHbU=&xsec_source=pc_search&source=unknown)
@@ -113,7 +116,7 @@ M20840872078
 - [x] 汇款用途选择**其他私人旅行**
 - [x] 点击提交，在跨境汇款的左下角的**汇款记录**可以查询进度，一般工作日需要等待1-3个小时不等
 
-> 第一次汇款成功后，进入**跨境汇款**，点击**汇款模板**进行转账，只需要修改转账金额即可。
+> 第一次汇款成功后，如果后续需要再次转账，进入**跨境汇款**，点击**汇款模板**进行转账，只需要修改转账金额即可。
 
 ## 5.转数快
 > 开通转数快实时跨行免费手续费转人民币或港币，每个银行具有独立的FPS ID
@@ -135,9 +138,15 @@ M20840872078
   - [深圳朋友，薅香港银行卡羊毛的时候到了。](https://www.xiaohongshu.com/explore/685e52cd000000002201d30d?xsec_token=ABM7hq5OcuOELrNUtoMzmXEZ9aoaaQ_HqWA_AURtYZipg=&xsec_source=pc_search&source=web_search_result_notes)
 
 ## 7.盈利证券
+点击右上角复制推荐码
+```sh
+v22uu
+```
 - [【uSMART盈立证券】盈立香港入金教程](https://www.xiaohongshu.com/explore/67b8a3a9000000000d014517?xsec_token=ABaknsM2kX71dy7hkegqlfEN9xEId3crhNeSOthTUWSyU=&xsec_source=pc_search&source=web_profile_page)
 - 盈立不需要存续证明和存量证明
 - 个人税务证明直接选用和身份证同个地址
+- 港股**不支持碎股买入**，最低一手起买，比如小米最低一手200股。但是可以**碎股卖出**
+- 使用`EDDA`存入港币之后，可以在**交易**页面，选择**货币兑换**，将港币兑换成美元，进而交易美股
 
 ## 8.其他
 - [2025内地人一天速通香港银行账户新攻略](https://www.xiaohongshu.com/explore/6809d9a3000000001e00253e?xsec_token=ABI1xZlwHX4svFrqDwYyyJkCisEwh7W5gr0KB1d1cqIGs=&xsec_source=pc_collect)

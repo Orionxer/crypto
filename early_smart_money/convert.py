@@ -6,17 +6,22 @@ import os
 import sys
 import time
 
+# 终端生成并打开Excel文件示例
+# python convert.py && start DNF.xlsx
+
+db_name = 'DNF.db'
+base_path = os.path.dirname(os.path.abspath(__file__))
+db_path = os.path.join(base_path, 'database', db_name)
+excel_path = os.path.join(base_path, 'database', os.path.splitext(db_name)[0] + '.xlsx')
 # 连接到 SQLite 数据库
-db_path = '../DNF.db'
 conn = sqlite3.connect(db_path)
-db_name = os.path.basename(db_path)
 # 获取所有表名
 cursor = conn.cursor()
 cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
 tables = [row[0] for row in cursor.fetchall()]
 
 # 创建 ExcelWriter 对象，使用 openpyxl 或 xlsxwriter 都可以
-output_file = 'DNF.xlsx'
+output_file = excel_path
 # 检查文件是否被占用
 if os.path.exists(output_file):
     try:

@@ -11,6 +11,7 @@
 # 根据最后一个Block区号继续向前查询，将查询结果写入数据库
 # 只有到达指定的时间范围才能停止向前查询
 
+import os
 import sqlite3
 import requests
 from rich import print
@@ -352,9 +353,11 @@ record = get_transaction(url, headers, params, signature)
 if record is None: exit()
 # 拼接数据库名称
 db_name = kol + ".db"
+base_path = os.path.dirname(os.path.abspath(__file__))
+db_path = os.path.join(base_path, 'database', db_name)
 if symbol is None: exit()
 # 初始化数据库,并获取最后一条记录
-last_record = init_database(db_name, symbol, record)
+last_record = init_database(db_path, symbol, record)
 # print(last_record)
 record_list = get_block_transactions(url, headers, params, last_record["Block"])
 if record_list is None: exit()
@@ -367,7 +370,7 @@ start = i + 1 if i is not None else 0
 # 如果数据库最新的哈希不是当前区块的最后一个哈希，则位于目标哈希前的哈希插入数据库
 if start < len(transacion_list):
     new_list = transacion_list[start:]
-    insert_records(db_name, new_list)
+    insert_records(db_path, new_list)
 # 如果目标哈希是当前区块的最后一个签名，则说明数据块完整存储了区块信息
 # 获取上一个Block
 parent_block = record_list["ParentBlock"]
@@ -392,7 +395,7 @@ while start_time > deadline:
     for record in record_list["transactions"]:
         print(f"Time: {record['HumanTime']}, SOL: {record['SOL']}, Signature: {record['Signature']}, Signer: {record['Signer']}")
     # 插入新查询的记录
-    insert_records(db_name, record_list["transactions"])
+    insert_records(db_path, record_list["transactions"])
 
 print("=========================================")
 print("Successfully completed the query")
