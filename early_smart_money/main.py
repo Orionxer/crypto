@@ -320,7 +320,12 @@ input_map = {
         "GOR": {
             "token_address": "71Jvq4Epe2FCJ7JFSF7jLXdNk1Wy4Bhqd9iL6bEFELvg",
             "signature": "21KjcEB11VjmirJt4qDC2bTqQpxfab19mq958sQKvoixjLVgHRVGNRkZ4vJWxXAr1eWZgkqCfajtZ5snAmQJ2JRb",
-            "deadline": "2025-06-18 22:00:00"
+            "deadline": "2025-06-18 22:47:00"
+        },
+        "FUMBLE": {
+            "token_address": "K5RpMc7AjwaUZBieDTnsWGrkJbCLJvFXWVsHpo5boop",
+            "signature": "54jqeb9Kys6UTbNH2MQvYYK2gfjfhuUfNti4D1Er6vi9Z1zEshSqHW9xwsRpiNjA2JgkH4zsTAvTU31goPaXvs48",
+            "deadline": "2025-07-11 06:30:00"
         }
     }
 }
