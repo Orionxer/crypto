@@ -316,6 +316,11 @@ input_map = {
             "token_address": "1zJX5gRnjLgmTpq5sVwkq69mNDQkCemqoasyjaPW6jm",
             "signature": "451ruFuMpaPHd1HZw44CfhqzqdJ3h4qgkdCK6Zbx2ro4ZHQMjm55mrSYG82qudXry9SihBbKQ7VqoyYt9miPBozL",
             "deadline": "2025-05-22 00:41:00"
+        },
+        "GOR": {
+            "token_address": "71Jvq4Epe2FCJ7JFSF7jLXdNk1Wy4Bhqd9iL6bEFELvg",
+            "signature": "21KjcEB11VjmirJt4qDC2bTqQpxfab19mq958sQKvoixjLVgHRVGNRkZ4vJWxXAr1eWZgkqCfajtZ5snAmQJ2JRb",
+            "deadline": "2025-06-18 22:00:00"
         }
     }
 }
@@ -325,7 +330,7 @@ input_map = {
 # ? ======================
 token_info = { 
     "kol": "DNF", 
-    "symbol": "KLED"
+    "symbol": "GOR"
 }
 # 签名哈希
 signature = input_map[token_info["kol"]][token_info["symbol"]]["signature"]

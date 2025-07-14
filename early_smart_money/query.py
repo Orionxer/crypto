@@ -1,12 +1,12 @@
 ﻿import sqlite3
 import os
 
-def print_common_values(db_path, table1, table2, column):
+def print_common_values(db_path, table1, table2):
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
     
     # 使用 INTERSECT 查询两个表共有的值
-    query = f"SELECT {column} FROM {table1} INTERSECT SELECT {column} FROM {table2}"
+    query = f"SELECT Signer FROM {table1} INTERSECT SELECT Signer FROM {table2}"
     cursor.execute(query)
     
     # 打印所有共同值，去除序号，统计总数
@@ -53,11 +53,19 @@ def print_common_values(db_path, table1, table2, column):
     conn.close()
 
 # 使用示例
-input = {
-    "db_name": "DNF.db",
-    "table1": "GOONC",
-    "table2": "KLED",
-}
+db_name = "DNF.db"
 base_path = os.path.dirname(os.path.abspath(__file__))
-db_path = os.path.join(base_path, 'database', input["db_name"])
-print_common_values(db_path, input["table1"], input["table2"], 'Signer')
+db_path = os.path.join(base_path, 'database', db_name)
+
+# 读取数据库的表名
+conn = sqlite3.connect(db_path)
+cursor = conn.cursor()
+cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+tables = [row[0] for row in cursor.fetchall()]
+print(tables)
+conn.close()
+# 比较不同的tables
+print_common_values(db_path, tables[0], tables[1])
+print_common_values(db_path, tables[1], tables[2])
+print_common_values(db_path, tables[0], tables[2])
+# 
