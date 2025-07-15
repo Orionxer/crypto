@@ -335,7 +335,7 @@ input_map = {
 # ? ======================
 token_info = { 
     "kol": "DNF", 
-    "symbol": "GOR"
+    "symbol": "FUMBLE"
 }
 # 签名哈希
 signature = input_map[token_info["kol"]][token_info["symbol"]]["signature"]
