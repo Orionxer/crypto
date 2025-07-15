@@ -311,61 +311,79 @@ input_map = {
             "token_address": "ENfpbQUM5xAnNP8ecyEQGFJ6KwbuPjMwv7ZjR29cDuAb",
             "signature": "GF5tJVe6PZV2DFVhSYRZQSxisoH9YS8fTnGGwBqNcCYJ1jmyBr5VRVcKJRJRsK9TRsyrHmX7K1eEvqgPPvXxSBk",
             "deadline": "2025-05-13 02:20:28",
-            "notes": [
-                "Done"
-            ]
+            "status": True,
         },
         "KLED": {
             "token_address": "1zJX5gRnjLgmTpq5sVwkq69mNDQkCemqoasyjaPW6jm",
             "signature": "451ruFuMpaPHd1HZw44CfhqzqdJ3h4qgkdCK6Zbx2ro4ZHQMjm55mrSYG82qudXry9SihBbKQ7VqoyYt9miPBozL",
             "deadline": "2025-05-22 00:41:00",
-            "notes": [
-                "Done"
-            ]
+            "status": True,
         },
         "GOR": {
             "token_address": "71Jvq4Epe2FCJ7JFSF7jLXdNk1Wy4Bhqd9iL6bEFELvg",
             "signature": "21KjcEB11VjmirJt4qDC2bTqQpxfab19mq958sQKvoixjLVgHRVGNRkZ4vJWxXAr1eWZgkqCfajtZ5snAmQJ2JRb",
             "deadline": "2025-06-18 22:47:00",
-            "notes": [
-                "Done"
-            ]
+            "status": True,
         },
         "FUMBLE": {
             "token_address": "K5RpMc7AjwaUZBieDTnsWGrkJbCLJvFXWVsHpo5boop",
             "signature": "54jqeb9Kys6UTbNH2MQvYYK2gfjfhuUfNti4D1Er6vi9Z1zEshSqHW9xwsRpiNjA2JgkH4zsTAvTU31goPaXvs48",
             "deadline": "2025-07-11 06:30:00",
-            "notes": [
-                "Done"
-            ]
+            "status": True,
         },
         "Ani": {
             "token_address": "9tqjeRS1swj36Ee5C1iGiwAxjQJNGAVCzaTLwFY8bonk",
             "signature": "2fiC2fJR1JNfzmMLBh5cYHPFehns8dFrkN3kkvdrUtcjSYC5eLSE45BZWkDAjbhcuzQrKxN91J7F8aDt2RMeMo1W",
-            "deadline": "2025-07-14 10:32:00"
+            "deadline": "2025-07-14 10:32:00",
+            "status": True,
         },
         "M0N3Y": {
             "token_address": "ANNTWQsQ9J3PeM6dXLjdzwYcSzr51RREWQnjuuCEpump",
             "signature": "5csFb1owpWAWmtYQqSQzBtf96PdUXqSUNiXHdtdMueTMQ21Dw2PVhiXdMFRGL7XSDjuo52VAJwjKK4xkWqCRNiKD",
             "deadline": "2025-05-27 11:48:00",
+            "status": False,
             "notes": [
-                "Undone",
-                "Forward 4 hours ago"
+                "Forward 4 hours"
             ]
         },
         "MLG": {
             "token_address": "7XJiwLDrjzxDYdZipnJXzpr1iDTmK55XixSFAa7JgNEL",
             "signature": "5csFb1owpWAWmtYQqSQzBtf96PdUXqSUNiXHdtdMueTMQ21Dw2PVhiXdMFRGL7XSDjuo52VAJwjKK4xkWqCRNiKD",
             "deadline": "2024-04-20 22:51:59",
+            "status": False,
             "notes": [
-                "Undone",
-                "Forward 1 hours ago"
+                "Forward 1 hours"
             ]
+        },
+        "Banana": {
+            "token_address": "FuQASH8ps9NPeDu4h3rVtMBygKYoSiSTZ4uSiA5tpump",
+            "signature": "57gtAc8tM5qqyB8WXEdkFEf19wQNvGz5z6Vw6aereAeqaBDVcowMZ2F7PiKq9UxwuoFxkPJrmVCnUGoUFH9HC9Pm",
+            "deadline": "2024-11-12 06:00:00",
+            "status": False,
+            "notes": [
+                "Forward 9 hours"
+            ]
+        },
+        "KNET": {
+            "token_address": "CfVs3waH2Z9TM397qSkaipTDhA9wWgtt8UchZKfwkYiu",
+            "signature": "4tQVBW75Radswyq5PNL7Fj4WR5N2jf5NaFSfbLF1xdgdqQarphAnmW7uQFBAXmg6W5m5eRfq2VawLFD6ag5ijTsk",
+            "deadline": "2025-05-17 10:00:00",
+            "status": False,
+            "notes": [
+                "Forward 1 hours"
+            ]
+        },
+        "Petunia": {
+            "token_address": "7tPPYTBKrFLKKnoCwijrsfjAYadyp7GpAmSPUbVwbonk",
+            "signature": "4YP9p2h8M4Xe5gN5Q3z9sY64idNMUZtPQqMgw9CJJrwyPuKfMNX2hVa876gnJ4DYruNHCRXQ8dHan94cCzwb4aB2",
+            "deadline": "2025-05-12 01:15:00",
+            "status": False
         },
         "旺柴": {
             "token_address": "83kGGSggYGP2ZEEyvX54SkZR1kFn84RgGCDyptbDbonk",
             "signature": "3VbBhTTH18tHz9YsV2b3PbHC2bWEC1X4EDBx3Xn7p6p9xtw8vMH8MCQh81MeWwTvQrAtVsVANLc1JDmYzdjniscQ",
-            "deadline": "2025-07-04 06:40:00"
+            "deadline": "2025-07-04 06:40:00",
+            "status": True
         }
     }
 }
@@ -375,7 +393,7 @@ input_map = {
 # ? ======================
 token_info = { 
     "kol": "DNF", 
-    "symbol": "Ani"
+    "symbol": "M0N3Y"
 }
 # 签名哈希
 signature = input_map[token_info["kol"]][token_info["symbol"]]["signature"]
