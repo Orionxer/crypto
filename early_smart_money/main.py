@@ -364,6 +364,24 @@ input_map = {
                 "Forward 1 hours"
             ]
         },
+        "TRENCHER": {
+            "token_address": "8ncucXv6U6epZKHPbgaEBcEK399TpHGKCquSt4RnmX4f",
+            "signature": "4yMMLQwwyCGo6qFw3GPSvz1mbwkuoGXosiaFE7Dpds2MvkJGNVVmabML2NgRh56dZW2Nkng6uBg7xeTN71AagYpz",
+            "deadline": "2025-04-24 09:10:00",
+            "status": False
+        },
+        "Stupid": {
+            "token_address": "9RjwNo6hBPkxayWHCqQD1VjaH8igSizEseNZNbddpump",
+            "signature": "2DhQLv89tMTo1GouBdyVTmMH2ddk8zwaGBt97NZUHWicPBaRmxT9twErNhBHTGr5ETrtMrZUn9zGsPaBD3fNePRg",
+            "deadline": "2025-01-25 16:00:00",
+            "status": False
+        },
+        "LAUNCHCOIN": {
+            "token_address": "Ey59PH7Z4BFU4HjyKnyMdWt5GGN76KazTAwQihoUXRnk",
+            "signature": "39NEiT6BcnEUXo6g7NzFYypsMeKMtQaaSFHoUajqT8iofa9AcJPEmd4VnrZgeFeJXUtL6hVCyQNYQ7MuRwugh3h7",
+            "deadline": "2025-01-24 03:00:00",
+            "status": False
+        },
         "Banana": {
             "token_address": "FuQASH8ps9NPeDu4h3rVtMBygKYoSiSTZ4uSiA5tpump",
             "signature": "57gtAc8tM5qqyB8WXEdkFEf19wQNvGz5z6Vw6aereAeqaBDVcowMZ2F7PiKq9UxwuoFxkPJrmVCnUGoUFH9HC9Pm",
@@ -377,7 +395,7 @@ input_map = {
             "token_address": "CfVs3waH2Z9TM397qSkaipTDhA9wWgtt8UchZKfwkYiu",
             "signature": "4tQVBW75Radswyq5PNL7Fj4WR5N2jf5NaFSfbLF1xdgdqQarphAnmW7uQFBAXmg6W5m5eRfq2VawLFD6ag5ijTsk",
             "deadline": "2025-05-17 10:00:00",
-            "status": False,
+            "status": True,
             "notes": [
                 "Forward 1 hours"
             ]
@@ -402,7 +420,7 @@ input_map = {
 # ? ======================
 token_info = { 
     "kol": "DNF", 
-    "symbol": "KNET"
+    "symbol": "Stupid"
 }
 # 签名哈希
 signature = input_map[token_info["kol"]][token_info["symbol"]]["signature"]
