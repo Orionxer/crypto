@@ -19,6 +19,7 @@ from rich.syntax import Syntax
 import json
 import time
 from datetime import datetime, timezone
+import pytz
 from enum import Enum
 
 # 【x] 切换不同RPC接口的URL及其密钥(额度耗尽时可以切换)
@@ -97,6 +98,14 @@ def friend_print(response):
     json_str = json.dumps(response, indent=4, ensure_ascii=False)
     syntax = Syntax(json_str, "json", theme="dracula", background_color="default")
     print(syntax)
+
+############################## 时间计算 #####################################
+# 计算时间差的绝对值，并格式化为小时和分钟
+def calc_time_diff(start, end):
+    seconds = end - start
+    hours = seconds // 3600
+    minutes = (seconds % 3600) // 60
+    return f"{hours:02d}h:{minutes:02d}m"
 
 ############################ 数据库 #####################################
 # 初始化数据库
@@ -341,7 +350,7 @@ input_map = {
             "token_address": "ANNTWQsQ9J3PeM6dXLjdzwYcSzr51RREWQnjuuCEpump",
             "signature": "5csFb1owpWAWmtYQqSQzBtf96PdUXqSUNiXHdtdMueTMQ21Dw2PVhiXdMFRGL7XSDjuo52VAJwjKK4xkWqCRNiKD",
             "deadline": "2025-05-27 11:48:00",
-            "status": False,
+            "status": True,
             "notes": [
                 "Forward 4 hours"
             ]
@@ -350,7 +359,7 @@ input_map = {
             "token_address": "7XJiwLDrjzxDYdZipnJXzpr1iDTmK55XixSFAa7JgNEL",
             "signature": "4h6QQ6gavT4k23pmy8BUwBpSVV8cCfQhN8tZyiwRsu9RC28QThUD8VpuViM8rbNgKcmyvA2ayNN9zVubKwBPWx3r",
             "deadline": "2024-04-20 22:51:59",
-            "status": False,
+            "status": True,
             "notes": [
                 "Forward 1 hours"
             ]
@@ -393,7 +402,7 @@ input_map = {
 # ? ======================
 token_info = { 
     "kol": "DNF", 
-    "symbol": "M0N3Y"
+    "symbol": "KNET"
 }
 # 签名哈希
 signature = input_map[token_info["kol"]][token_info["symbol"]]["signature"]
@@ -456,14 +465,19 @@ while start_time > deadline:
         continue
     start_time = record_list["BlockTime"]
     parent_block = record_list["ParentBlock"]
+    utc_8 = datetime.now(pytz.timezone('Asia/Shanghai')).strftime("%Y-%m-%d %H:%M:%S")
+    remain = calc_time_diff(deadline, start_time)
+    print(f"{symbol}, LogTime: {utc_8}, {len(record_list['transactions'])} signer in Block: {record_list['Block']}, BlockTime: {record_list['HumanTime']}, remain: {remain}")
     if not record_list["transactions"]:
-        print(f"Skip Block: {record_list['Block']} - Time: {record_list['HumanTime']} - No transactions found for {symbol}")
+        # print(f"Skip Block: {record_list['Block']} - Time: {record_list['HumanTime']} - No transactions found for {symbol}")
         continue
-    # 打印当前区块的交易记录
-    for record in record_list["transactions"]:
-        print(f"Time: {record['HumanTime']}, SOL: {record['SOL']}, Signature: {record['Signature']}, Signer: {record['Signer']}")
+    # # 打印当前区块的交易记录
+    # for record in record_list["transactions"]:
+    #     print(f"Time: {record['HumanTime']}, SOL: {record['SOL']}, Signature: {record['Signature']}, Signer: {record['Signer']}")
     # 插入新查询的记录
     insert_records(db_path, record_list["transactions"])
 
+# TODO 先读取JSON文件的status是否为True，如果是则不再查询，继续下一个
+# TODO 查询结束，则将指定的Symbol的status设置为True
 print("=========================================")
 print("Successfully completed the query")
