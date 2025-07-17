@@ -180,14 +180,14 @@ def insert_records(db_name, record_list):
 
 ########################## 查询交易 ####################################
 
-def get_ui_amount(balances, signer):
+def get_ui_amount(balances, token_address, signer):
     for b in balances:
         if b.get("mint") == token_address and b.get("owner") == signer:
             amount_info = b.get("uiTokenAmount", {})
             return amount_info.get("uiAmount", 0.0)
     return 0.0
 
-def get_transaction(url, headers, params, signature):
+def get_transaction(url, headers, params, signature, token_address):
     result = {}
     payload = {
         "jsonrpc": "2.0",
@@ -217,8 +217,8 @@ def get_transaction(url, headers, params, signature):
         # 计算花费的SOL(暂不考虑优先费以及手续费)
         sol_spent = (meta.get("preBalances", [0])[0] - meta.get("postBalances", [0])[0]) / 1e9
         # 获取买入的代币数量
-        post_amount = get_ui_amount(meta.get("postTokenBalances", []), signer) or 0.0
-        pre_amount = get_ui_amount(meta.get("preTokenBalances", []), signer) or 0.0
+        post_amount = get_ui_amount(meta.get("postTokenBalances", []), token_address, signer) or 0.0
+        pre_amount = get_ui_amount(meta.get("preTokenBalances", []), token_address, signer) or 0.0
         token = post_amount - pre_amount
         result = {"Block":slot, "BlockTime":block_time, "HumanTime":human_time, "SOL":sol_spent, "Token":token,"Signature": signature, "Signer":signer}
         # friend_print(response.json())
@@ -228,7 +228,7 @@ def get_transaction(url, headers, params, signature):
         print(f"请求失败：{e}")
         return None
     
-def get_block_transactions(url, headers, params, slot):
+def get_block_transactions(url, headers, params, slot, token_address):
     payload = {
         "jsonrpc": "2.0",
         "id": 1,
@@ -275,8 +275,8 @@ def get_block_transactions(url, headers, params, slot):
             except ValueError:
                 continue
 
-            post_amount = get_ui_amount(meta.get("postTokenBalances", []), signer) or 0.0
-            pre_amount = get_ui_amount(meta.get("preTokenBalances", []), signer) or 0.0
+            post_amount = get_ui_amount(meta.get("postTokenBalances", []), token_address, signer) or 0.0
+            pre_amount = get_ui_amount(meta.get("preTokenBalances", []), token_address, signer) or 0.0
             token = post_amount - pre_amount
             # * 缺少代币创建哈希，但不影响功能。可以通过getSignatureForAddress查询到哈希签名后去solscan验证
             # 判断买入行为（Token增加）
@@ -313,207 +313,136 @@ def get_block_transactions(url, headers, params, slot):
 ########################## 补充初始数据 ##################################
 # https://solscan.io/ 根据哈希签名查询其他需要补充数据
 
+# ? ======================
+# 向DNF.json读取需要查询的信息，除非手动指定，否则自动遍历。其他KOL同理
 # 查询截止时间暂定gmgn.ai上线币种时间,时间均为UTC+0
-input_map = {
-    "DNF": {
-        "GOONC": { 
-            "token_address": "ENfpbQUM5xAnNP8ecyEQGFJ6KwbuPjMwv7ZjR29cDuAb",
-            "signature": "GF5tJVe6PZV2DFVhSYRZQSxisoH9YS8fTnGGwBqNcCYJ1jmyBr5VRVcKJRJRsK9TRsyrHmX7K1eEvqgPPvXxSBk",
-            "deadline": "2025-05-13 02:20:28",
-            "status": True,
-        },
-        "KLED": {
-            "token_address": "1zJX5gRnjLgmTpq5sVwkq69mNDQkCemqoasyjaPW6jm",
-            "signature": "451ruFuMpaPHd1HZw44CfhqzqdJ3h4qgkdCK6Zbx2ro4ZHQMjm55mrSYG82qudXry9SihBbKQ7VqoyYt9miPBozL",
-            "deadline": "2025-05-22 00:41:00",
-            "status": True,
-        },
-        "GOR": {
-            "token_address": "71Jvq4Epe2FCJ7JFSF7jLXdNk1Wy4Bhqd9iL6bEFELvg",
-            "signature": "21KjcEB11VjmirJt4qDC2bTqQpxfab19mq958sQKvoixjLVgHRVGNRkZ4vJWxXAr1eWZgkqCfajtZ5snAmQJ2JRb",
-            "deadline": "2025-06-18 22:47:00",
-            "status": True,
-        },
-        "FUMBLE": {
-            "token_address": "K5RpMc7AjwaUZBieDTnsWGrkJbCLJvFXWVsHpo5boop",
-            "signature": "54jqeb9Kys6UTbNH2MQvYYK2gfjfhuUfNti4D1Er6vi9Z1zEshSqHW9xwsRpiNjA2JgkH4zsTAvTU31goPaXvs48",
-            "deadline": "2025-07-11 06:30:00",
-            "status": True,
-        },
-        "Ani": {
-            "token_address": "9tqjeRS1swj36Ee5C1iGiwAxjQJNGAVCzaTLwFY8bonk",
-            "signature": "2fiC2fJR1JNfzmMLBh5cYHPFehns8dFrkN3kkvdrUtcjSYC5eLSE45BZWkDAjbhcuzQrKxN91J7F8aDt2RMeMo1W",
-            "deadline": "2025-07-14 10:32:00",
-            "status": True,
-        },
-        "M0N3Y": {
-            "token_address": "ANNTWQsQ9J3PeM6dXLjdzwYcSzr51RREWQnjuuCEpump",
-            "signature": "5csFb1owpWAWmtYQqSQzBtf96PdUXqSUNiXHdtdMueTMQ21Dw2PVhiXdMFRGL7XSDjuo52VAJwjKK4xkWqCRNiKD",
-            "deadline": "2025-05-27 11:48:00",
-            "status": True
-        },
-        "MLG": {
-            "token_address": "7XJiwLDrjzxDYdZipnJXzpr1iDTmK55XixSFAa7JgNEL",
-            "signature": "4h6QQ6gavT4k23pmy8BUwBpSVV8cCfQhN8tZyiwRsu9RC28QThUD8VpuViM8rbNgKcmyvA2ayNN9zVubKwBPWx3r",
-            "deadline": "2024-04-20 22:51:59",
-            "status": True
-        },
-        "TRENCHER": {
-            "token_address": "8ncucXv6U6epZKHPbgaEBcEK399TpHGKCquSt4RnmX4f",
-            "signature": "4yMMLQwwyCGo6qFw3GPSvz1mbwkuoGXosiaFE7Dpds2MvkJGNVVmabML2NgRh56dZW2Nkng6uBg7xeTN71AagYpz",
-            "deadline": "2025-04-24 09:10:00",
-            "status": True
-        },
-        "Stupid": {
-            "token_address": "9RjwNo6hBPkxayWHCqQD1VjaH8igSizEseNZNbddpump",
-            "signature": "2DhQLv89tMTo1GouBdyVTmMH2ddk8zwaGBt97NZUHWicPBaRmxT9twErNhBHTGr5ETrtMrZUn9zGsPaBD3fNePRg",
-            "deadline": "2025-01-25 16:00:00",
-            "status": False
-        },
-        "WORTHZERO": {
-            "token_address": "4dikXY7cZW2R5Zout46LLEGrS4Zn2K8Dm6AQJhtg1H56",
-            "signature": "32JKqaAZrCoQK9uCNqj32Xg4ZqSVcxno55A5Gdtnt6ZAK7uiCa5NVQyhMzXcpQkReDFxgfRuFcyPb3kPaXVtTuXd",
-            "deadline": "2025-02-12 02:00:00",
-            "status": False
-        },
-        "∅": {
-            "token_address": "J2bUGZDxRDpsVfjZqKwn6yYCUKFmqzHgt8UajhGtpump",
-            "signature": "4nBxozUvtJ4haPUvW5M6b1qCkKU6MmtWFWb2Jtg8edQ47U1x4rB6xEH6CJ1SQWXSmV45CBWeBxGGfaKU7u21TiCL",
-            "deadline": "2025-02-07 00:00:00",
-            "status": False
-        },
-        "GREG": {
-            "token_address": "zZRRHGndBuUsbn4VM47RuagdYt57hBbskQ2Ba6K5775",
-            "signature": "4NSiBoy4KhHMr9bFaCF2y8j8hsLaiJUzqtU7TvwJEqQb8scWP3dTnHEsj3jwSk5Bt644TATrXgR79KaLBcLUiHTt",
-            "deadline": "2024-04-10 22:00:00",
-            "status": False
-        },
-        "SUBY": {
-            "token_address": "G2pMCBjRQHHCkE79r9KAESvdhUCieWPZvX5GRFa3jCLg",
-            "signature": "2XMqMB2eWF1Hb9ndjzqrdZFPY8oj6uUn66RFWwEqDXE4NszsCJAknof2iLrDJdqcZq4Tq2zntokfzo1AaysUJs4z",
-            "deadline": "2025-05-15 05:00:00",
-            "status": False
-        },
-        "Swoge": {
-            "token_address": "7R88oQWwoFwMqb2ryrozDMvN3jNnWqrMB3ytKxNybonk",
-            "signature": "26cSausZ8mz7ncddaNJYferv9Mu5byC1dtqALaSbmGFuATwTEqDeRnMjsTcKkbCgPfBr6EDZhs81HiR2RXmcURdL",
-            "deadline": "2025-07-13 13:00:00",
-            "status": False
-        },
-        "LAUNCHCOIN": {
-            "token_address": "Ey59PH7Z4BFU4HjyKnyMdWt5GGN76KazTAwQihoUXRnk",
-            "signature": "39NEiT6BcnEUXo6g7NzFYypsMeKMtQaaSFHoUajqT8iofa9AcJPEmd4VnrZgeFeJXUtL6hVCyQNYQ7MuRwugh3h7",
-            "deadline": "2025-01-24 03:00:00",
-            "status": False
-        },
-        "Banana": {
-            "token_address": "FuQASH8ps9NPeDu4h3rVtMBygKYoSiSTZ4uSiA5tpump",
-            "signature": "57gtAc8tM5qqyB8WXEdkFEf19wQNvGz5z6Vw6aereAeqaBDVcowMZ2F7PiKq9UxwuoFxkPJrmVCnUGoUFH9HC9Pm",
-            "deadline": "2024-11-12 06:00:00",
-            "status": False
-        },
-        "KNET": {
-            "token_address": "CfVs3waH2Z9TM397qSkaipTDhA9wWgtt8UchZKfwkYiu",
-            "signature": "4tQVBW75Radswyq5PNL7Fj4WR5N2jf5NaFSfbLF1xdgdqQarphAnmW7uQFBAXmg6W5m5eRfq2VawLFD6ag5ijTsk",
-            "deadline": "2025-05-17 10:00:00",
-            "status": True
-        },
-        "Petunia": {
-            "token_address": "7tPPYTBKrFLKKnoCwijrsfjAYadyp7GpAmSPUbVwbonk",
-            "signature": "4YP9p2h8M4Xe5gN5Q3z9sY64idNMUZtPQqMgw9CJJrwyPuKfMNX2hVa876gnJ4DYruNHCRXQ8dHan94cCzwb4aB2",
-            "deadline": "2025-05-12 01:15:00",
-            "status": False
-        },
-        "旺柴": {
-            "token_address": "83kGGSggYGP2ZEEyvX54SkZR1kFn84RgGCDyptbDbonk",
-            "signature": "3VbBhTTH18tHz9YsV2b3PbHC2bWEC1X4EDBx3Xn7p6p9xtw8vMH8MCQh81MeWwTvQrAtVsVANLc1JDmYzdjniscQ",
-            "deadline": "2025-07-04 06:40:00",
-            "status": True
-        }
-    }
-}
-
 # ? ======================
-# 从上方选择需要查询的信息
-# ? ======================
-token_info = { 
-    "kol": "DNF", 
-    "symbol": "Stupid"
-}
-# 签名哈希
-signature = input_map[token_info["kol"]][token_info["symbol"]]["signature"]
-# 代币地址
-token_address = input_map[token_info["kol"]][token_info["symbol"]]["token_address"]
-# 获取代币名称（表名）
-symbol = token_info["symbol"]
-# 车头昵称
-kol = token_info["kol"]
-# 查询截止时间
-deadline_str = input_map[token_info["kol"]][token_info["symbol"]]["deadline"]
-# 将字符串转换为UTC+0 Unix时间戳
-deadline = int(datetime.strptime(deadline_str, "%Y-%m-%d %H:%M:%S").replace(tzinfo=timezone.utc).timestamp())
 
-########################## 主函数调用 ####################################
-# ? 选择平台
-platform = Platform.Helius
-# 初始化RPC接口
-rpc_api = rpc_api_map[platform]
-url = rpc_api["url"]
-headers = rpc_api["headers"]
-params = rpc_api["params"]
-# 查询车头第一次买入
-record = get_transaction(url, headers, params, signature)
-if record is None: exit()
-# 拼接数据库名称
-db_name = kol + ".db"
-base_path = os.path.dirname(os.path.abspath(__file__))
-db_path = os.path.join(base_path, 'database', db_name)
-if symbol is None: exit()
-# 初始化数据库,并获取最后一条记录
-last_record = init_database(db_path, symbol, record)
-# print(last_record)
-record_list = get_block_transactions(url, headers, params, last_record["Block"])
-if record_list is None: exit()
-# print(record_list)
+def query_symbol(platform, kol, symbol, signature, token_address, deadline_str):
+    # 初始化RPC接口
+    rpc_api = rpc_api_map[platform]
+    url = rpc_api["url"]
+    headers = rpc_api["headers"]
+    params = rpc_api["params"]
+    deadline = int(datetime.strptime(deadline_str, "%Y-%m-%d %H:%M:%S").replace(tzinfo=timezone.utc).timestamp())
+    # 查询车头第一次买入
+    record = get_transaction(url, headers, params, signature, token_address)
+    if record is None: exit()
+    # 拼接数据库名称
+    db_name = kol + ".db"
+    base_path = os.path.dirname(os.path.abspath(__file__))
+    db_path = os.path.join(base_path, 'database', db_name)
+    if symbol is None: exit()
+    # 初始化数据库,并获取最后一条记录
+    last_record = init_database(db_path, symbol, record)
+    # print(last_record)
+    record_list = get_block_transactions(url, headers, params, last_record["Block"], token_address)
+    if record_list is None: exit()
+    # print(record_list)
 
-# 从头开始找目标哈希签名
-transacion_list = record_list["transactions"]
-i = next((idx for idx, d in enumerate(transacion_list) if d.get('Signature') == last_record["Signature"]), None)
-start = i + 1 if i is not None else 0
-# 如果数据库最新的哈希不是当前区块的最后一个哈希，则位于目标哈希前的哈希插入数据库
-if start < len(transacion_list):
-    new_list = transacion_list[start:]
-    insert_records(db_path, new_list)
-# 如果目标哈希是当前区块的最后一个签名，则说明数据块完整存储了区块信息
-# 获取上一个Block
-parent_block = record_list["ParentBlock"]
-start_time = record_list["BlockTime"]
-# 指定查询结束的时间 # * 时间可以参考GMGN的初始时间进行适当设置
-# end_time = start_time - 3600
-# while start_time > start_time:
-while start_time > deadline:
-    # 获取上一个区块的交易信息
-    record_list = get_block_transactions(url, headers, params, parent_block)
-    if record_list is None:
-        # 可能是网络接口限制原因，等待5秒后重试
-        print(f"Retrying after 5 seconds...")
-        time.sleep(5)
-        continue
-    start_time = record_list["BlockTime"]
+    # 从头开始找目标哈希签名
+    transacion_list = record_list["transactions"]
+    i = next((idx for idx, d in enumerate(transacion_list) if d.get('Signature') == last_record["Signature"]), None)
+    start = i + 1 if i is not None else 0
+    # 如果数据库最新的哈希不是当前区块的最后一个哈希，则位于目标哈希前的哈希插入数据库
+    if start < len(transacion_list):
+        new_list = transacion_list[start:]
+        insert_records(db_path, new_list)
+    # 如果目标哈希是当前区块的最后一个签名，则说明数据块完整存储了区块信息
+    # 获取上一个Block
     parent_block = record_list["ParentBlock"]
-    utc_8 = datetime.now(pytz.timezone('Asia/Shanghai')).strftime("%Y-%m-%d %H:%M:%S")
-    remain = calc_time_diff(deadline, start_time)
-    print(f"{symbol}, LogTime: {utc_8}, {len(record_list['transactions'])} signer in Block: {record_list['Block']}, BlockTime: {record_list['HumanTime']}, remain: {remain}")
-    if not record_list["transactions"]:
-        # print(f"Skip Block: {record_list['Block']} - Time: {record_list['HumanTime']} - No transactions found for {symbol}")
-        continue
-    # # 打印当前区块的交易记录
-    # for record in record_list["transactions"]:
-    #     print(f"Time: {record['HumanTime']}, SOL: {record['SOL']}, Signature: {record['Signature']}, Signer: {record['Signer']}")
-    # 插入新查询的记录
-    insert_records(db_path, record_list["transactions"])
+    start_time = record_list["BlockTime"]
+    # 指定查询结束的时间 # * 时间可以参考GMGN的初始时间进行适当设置
+    # end_time = start_time - 3600
+    # while start_time > start_time:
+    while start_time > deadline:
+        # 获取上一个区块的交易信息
+        record_list = get_block_transactions(url, headers, params, parent_block, token_address)
+        if record_list is None:
+            # 可能是网络接口限制原因，等待5秒后重试
+            print(f"Retrying after 5 seconds...")
+            time.sleep(5)
+            continue
+        start_time = record_list["BlockTime"]
+        parent_block = record_list["ParentBlock"]
+        utc_8 = datetime.now(pytz.timezone('Asia/Shanghai')).strftime("%Y-%m-%d %H:%M:%S")
+        remain = calc_time_diff(deadline, start_time)
+        print(f"{symbol}, LogTime: {utc_8}, {len(record_list['transactions'])} signer in Block: {record_list['Block']}, BlockTime: {record_list['HumanTime']}, remain: {remain}")
+        if not record_list["transactions"]:
+            # print(f"Skip Block: {record_list['Block']} - Time: {record_list['HumanTime']} - No transactions found for {symbol}")
+            continue
+        # # 打印当前区块的交易记录
+        # for record in record_list["transactions"]:
+        #     print(f"Time: {record['HumanTime']}, SOL: {record['SOL']}, Signature: {record['Signature']}, Signer: {record['Signer']}")
+        # 插入新查询的记录
+        insert_records(db_path, record_list["transactions"])
+    # print("=========================================")
+    # print("Successfully completed the query")
+    return True
 
-# TODO 先读取JSON文件的status是否为True，如果是则不再查询，继续下一个
-# TODO 查询结束，则将指定的Symbol的status设置为True
-print("=========================================")
-print("Successfully completed the query")
+def read_json_file(file_path):
+    try:
+        with open(file_path, 'r', encoding='utf-8-sig') as file:
+            return json.load(file)
+    except Exception as e:
+        print(f"读取或解析JSON失败: {e}")
+        return None
+    
+def write_json_file(file_path, data):
+    try:
+        with open(file_path, 'w', encoding='utf-8') as file:
+            json.dump(data, file, indent=4, ensure_ascii=False)
+        print(f"JSON数据已写入到 {file_path}")
+    except Exception as e:
+        print(f"写入JSON失败: {e}")
+
+# 读取文件，并返回第一个status为False的Symbol
+def get_first_false_symbol(data):
+    for key, value in data[kol].items():
+        if value["status"] is False:
+            return key, value
+    return None, None
+
+# =============================================================
+# ? 选择平台接口
+platform = Platform.Helius
+# ? 指定KOL
+kol = "DNF"
+# ? 指定Symbol，否则遍历
+# symbol = "GOONC"
+# 如果symbol未定义，则定义symbol为None
+if 'symbol' not in locals() and 'symbol' not in globals(): symbol = None
+# =============================================================
+
+target_file = f"{kol}.json"
+base_path = os.path.dirname(os.path.abspath(__file__))
+target_path = os.path.join(base_path, 'database', target_file)
+##################### 主函数入口 #####################
+# 循环读取JSON文件，直至所有Symbol的status都为True
+while True:
+    data = read_json_file(target_path)
+    assert(data)
+    # 如果指定了symbol，则直接获取该Symbol的值
+    if symbol:
+        symbol_value = data[kol][symbol]
+    else:
+        # 获取第一个status为False的Symbol
+        symbol, symbol_value = get_first_false_symbol(data)
+        # 遍历打印键值对
+        for key, value in data[kol].items():
+            print(f"{key}, status: {value['status']}")
+        if symbol is None:
+            # 所有symbol都已查询完毕
+            print("All symbols have been processed successfully.")
+            break
+    # 执行查询
+    signature = symbol_value["signature"]
+    token_address = symbol_value["token_address"]
+    deadline_str = symbol_value["deadline"]
+    finish = query_symbol(platform, kol, symbol, signature, token_address, deadline_str)
+    if finish:
+        print(f"{kol} == >> {symbol} query completed.")
+    symbol_value["status"] = True
+    # 将status设置为True，并写入文件里
+    write_json_file(target_path, data)
+    symbol = None  # 重置symbol，继续下一个查询
