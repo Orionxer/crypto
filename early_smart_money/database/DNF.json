@@ -34,37 +34,73 @@
             "token_address": "ANNTWQsQ9J3PeM6dXLjdzwYcSzr51RREWQnjuuCEpump",
             "signature": "5csFb1owpWAWmtYQqSQzBtf96PdUXqSUNiXHdtdMueTMQ21Dw2PVhiXdMFRGL7XSDjuo52VAJwjKK4xkWqCRNiKD",
             "deadline": "2025-05-27 11:48:00",
-            "status": true,
-            "notes": [
-                "Forward 4 hours"
-            ]
+            "status": true
         },
         "MLG": {
             "token_address": "7XJiwLDrjzxDYdZipnJXzpr1iDTmK55XixSFAa7JgNEL",
             "signature": "4h6QQ6gavT4k23pmy8BUwBpSVV8cCfQhN8tZyiwRsu9RC28QThUD8VpuViM8rbNgKcmyvA2ayNN9zVubKwBPWx3r",
             "deadline": "2024-04-20 22:51:59",
-            "status": true,
-            "notes": [
-                "Forward 1 hours"
-            ]
+            "status": true
+        },
+        "TRENCHER": {
+            "token_address": "8ncucXv6U6epZKHPbgaEBcEK399TpHGKCquSt4RnmX4f",
+            "signature": "4yMMLQwwyCGo6qFw3GPSvz1mbwkuoGXosiaFE7Dpds2MvkJGNVVmabML2NgRh56dZW2Nkng6uBg7xeTN71AagYpz",
+            "deadline": "2025-04-24 09:10:00",
+            "status": true
+        },
+        "Stupid": {
+            "token_address": "9RjwNo6hBPkxayWHCqQD1VjaH8igSizEseNZNbddpump",
+            "signature": "2DhQLv89tMTo1GouBdyVTmMH2ddk8zwaGBt97NZUHWicPBaRmxT9twErNhBHTGr5ETrtMrZUn9zGsPaBD3fNePRg",
+            "deadline": "2025-01-25 16:00:00",
+            "status": false
+        },
+        "WORTHZERO": {
+            "token_address": "4dikXY7cZW2R5Zout46LLEGrS4Zn2K8Dm6AQJhtg1H56",
+            "signature": "32JKqaAZrCoQK9uCNqj32Xg4ZqSVcxno55A5Gdtnt6ZAK7uiCa5NVQyhMzXcpQkReDFxgfRuFcyPb3kPaXVtTuXd",
+            "deadline": "2025-02-12 02:00:00",
+            "status": false
+        },
+        "∅": {
+            "token_address": "J2bUGZDxRDpsVfjZqKwn6yYCUKFmqzHgt8UajhGtpump",
+            "signature": "4nBxozUvtJ4haPUvW5M6b1qCkKU6MmtWFWb2Jtg8edQ47U1x4rB6xEH6CJ1SQWXSmV45CBWeBxGGfaKU7u21TiCL",
+            "deadline": "2025-02-07 00:00:00",
+            "status": false
+        },
+        "GREG": {
+            "token_address": "zZRRHGndBuUsbn4VM47RuagdYt57hBbskQ2Ba6K5775",
+            "signature": "4NSiBoy4KhHMr9bFaCF2y8j8hsLaiJUzqtU7TvwJEqQb8scWP3dTnHEsj3jwSk5Bt644TATrXgR79KaLBcLUiHTt",
+            "deadline": "2024-04-10 22:00:00",
+            "status": false
+        },
+        "SUBY": {
+            "token_address": "G2pMCBjRQHHCkE79r9KAESvdhUCieWPZvX5GRFa3jCLg",
+            "signature": "2XMqMB2eWF1Hb9ndjzqrdZFPY8oj6uUn66RFWwEqDXE4NszsCJAknof2iLrDJdqcZq4Tq2zntokfzo1AaysUJs4z",
+            "deadline": "2025-05-15 05:00:00",
+            "status": false
+        },
+        "Swoge": {
+            "token_address": "7R88oQWwoFwMqb2ryrozDMvN3jNnWqrMB3ytKxNybonk",
+            "signature": "26cSausZ8mz7ncddaNJYferv9Mu5byC1dtqALaSbmGFuATwTEqDeRnMjsTcKkbCgPfBr6EDZhs81HiR2RXmcURdL",
+            "deadline": "2025-07-13 13:00:00",
+            "status": false
+        },
+        "LAUNCHCOIN": {
+            "token_address": "Ey59PH7Z4BFU4HjyKnyMdWt5GGN76KazTAwQihoUXRnk",
+            "signature": "39NEiT6BcnEUXo6g7NzFYypsMeKMtQaaSFHoUajqT8iofa9AcJPEmd4VnrZgeFeJXUtL6hVCyQNYQ7MuRwugh3h7",
+            "deadline": "2025-01-24 03:00:00",
+            "status": false
         },
         "Banana": {
             "token_address": "FuQASH8ps9NPeDu4h3rVtMBygKYoSiSTZ4uSiA5tpump",
             "signature": "57gtAc8tM5qqyB8WXEdkFEf19wQNvGz5z6Vw6aereAeqaBDVcowMZ2F7PiKq9UxwuoFxkPJrmVCnUGoUFH9HC9Pm",
             "deadline": "2024-11-12 06:00:00",
-            "status": false,
-            "notes": [
-                "Forward 9 hours"
-            ]
+            "status": false
         },
         "KNET": {
             "token_address": "CfVs3waH2Z9TM397qSkaipTDhA9wWgtt8UchZKfwkYiu",
             "signature": "4tQVBW75Radswyq5PNL7Fj4WR5N2jf5NaFSfbLF1xdgdqQarphAnmW7uQFBAXmg6W5m5eRfq2VawLFD6ag5ijTsk",
             "deadline": "2025-05-17 10:00:00",
-            "status": false,
-            "notes": [
-                "Forward 1 hours"
-            ]
+            "status": true
         },
         "Petunia": {
             "token_address": "7tPPYTBKrFLKKnoCwijrsfjAYadyp7GpAmSPUbVwbonk",
