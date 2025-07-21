@@ -310,14 +310,6 @@ def get_block_transactions(url, headers, params, slot, token_address):
         print(f"请求失败：{e}")
         return None
 
-########################## 补充初始数据 ##################################
-# https://solscan.io/ 根据哈希签名查询其他需要补充数据
-
-# ? ======================
-# 向DNF.json读取需要查询的信息，除非手动指定，否则自动遍历。其他KOL同理
-# 查询截止时间暂定gmgn.ai上线币种时间,时间均为UTC+0
-# ? ======================
-
 def query_symbol(platform, kol, symbol, signature, token_address, deadline_str):
     # 初始化RPC接口
     rpc_api = rpc_api_map[platform]
@@ -403,6 +395,12 @@ def get_first_false_symbol(data):
             return key, value
     return None, None
 
+########################## 补充初始数据 ##################################
+# https://solscan.io/ 根据哈希签名查询其他需要补充数据
+# ? ======================
+# 向DNF.json读取需要查询的信息，除非手动指定，否则自动遍历。其他KOL同理
+# 查询截止时间暂定gmgn.ai上线币种时间,时间均为UTC+0
+# ? ======================
 # =============================================================
 # ? 选择平台接口
 platform = Platform.Helius
@@ -413,10 +411,10 @@ kol = "DNF"
 # 如果symbol未定义，则定义symbol为None
 if 'symbol' not in locals() and 'symbol' not in globals(): symbol = None
 # =============================================================
-
 target_file = f"{kol}.json"
 base_path = os.path.dirname(os.path.abspath(__file__))
 target_path = os.path.join(base_path, 'database', target_file)
+
 ##################### 主函数入口 #####################
 # 循环读取JSON文件，直至所有Symbol的status都为True
 while True:

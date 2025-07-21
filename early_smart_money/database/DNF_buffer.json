@@ -1,0 +1,16 @@
+﻿{
+    "DNF": {
+        "demo0": { 
+            "token_address": "",
+            "signature": "",
+            "deadline": "",
+            "status": false
+        },
+        "demo1": {
+            "token_address": "",
+            "signature": "",
+            "deadline": "",
+            "status": false
+        }
+    }
+}
