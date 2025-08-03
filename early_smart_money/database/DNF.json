@@ -4,43 +4,43 @@
             "token_address": "EuU9Vh37eKDdUnZkUfMZLGCcBqwFYpr1E6X3ZwUxhvgm",
             "signature": "rGT2hCGBngDaSVU8mNXr3uys233EpHHCVRVR6aZkVkaq6H964hpjXk5ZpzPvwZjPwzqxYedpdRKwRhy58r6BChg",
             "deadline": "2025-07-18 12:08:00",
-            "status": false
+            "status": true
         },
         "Bonkyo": {
             "token_address": "oha3mwwm2tqWRouJ2KGUiz4Vz9FCRcPm1fApm87bonk",
             "signature": "5NErEYVV2BvzkWfr6snJFruJcvv4YwyQTWWcznvDgE1GzMZWyNi1YbRbMuqyYPx5nLGJEJEVaKioTDfmDWiHF3S3",
             "deadline": "2025-07-25 03:16:00",
-            "status": false
+            "status": true
         },
         "lmeow": {
             "token_address": "DGKj2gcKkrYnJYLGN89d1yStpx7r6yPkR166opx2bonk",
             "signature": "2RATxJzKcLoDX98EotQtTsFXrEqSwEx8r874vPiNiK1o73vVVUcBFuaDJwohApZaw5Kmg9MVMAuzEpcRuxY685Xf",
             "deadline": "2025-07-23 18:14:00",
-            "status": false
+            "status": true
         },
         "AOL": {
             "token_address": "2oQNkePakuPbHzrVVkQ875WHeewLHCd2cAwfwiLQbonk",
             "signature": "3qx93sXjjbfKE7jTsp2LUiRwKQhXmqEjj2KkuGWDDESr53XmJsfxYkw3dTU18oFJsVduufr2aY5FfD2bpBx7bKLY",
             "deadline": "2025-07-17 01:35:00",
-            "status": false
+            "status": true
         },
         "AI": {
             "token_address": "7tAnusL3srXjzEriVL86a23KgwDZKXJTZ2ezEUubonk",
             "signature": "2pCpFAJmDuFpvNyk4xnpp35gaDYaFcaCSsH1PHaLo4SN86Hf1REPx5qAEgqbJB7Ndk7CBAQuhRKNknjdBv5gnKUm",
             "deadline": "2025-07-15 15:57:00",
-            "status": false
+            "status": true
         },
         "WORTHLESS": {
             "token_address": "iUdvUaxyRHh8PYVcmkgBpSJu5evpW6jsSLv8RCpmoon",
             "signature": "2WHyeihmYebDAoEgSnnbE4yqsycmwS6jtEfZJ2mNXWfaEktUUqS27TS2qtCKM9RMjcYCg2rkthVyiqVF77Bob3kF",
             "deadline": "2025-07-16 06:06:00",
-            "status": false
+            "status": true
         },
         "Lore": {
             "token_address": "DHAajf71VVT9s98hmyFyr3JDnr9KfotFbM5gQJV5bonk",
             "signature": "4K2CuYMQpJxcRXos2mdzoZVbaJTm14SiDNjaAHgTiZurdEx6M6UdgDhL5Qq8ckLV3GXGezCgjXHbNNyodLDQDUfB",
             "deadline": "2025-07-16 08:18:00",
-            "status": false
+            "status": true
         },
         "GOONC": {
             "token_address": "ENfpbQUM5xAnNP8ecyEQGFJ6KwbuPjMwv7ZjR29cDuAb",
