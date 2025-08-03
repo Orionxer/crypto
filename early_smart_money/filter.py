@@ -53,8 +53,8 @@ def display_all_table(db_path):
     
     conn.close()
 
-# SQlite跨表查询，查找至少n个表中共同的值
-def find_common_signers(db_path, n):
+# SQlite跨表查询，查找至少n个表中共同的值, seperator默认为空格
+def find_common_signers(db_path, n, seperator=" "):
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
     
@@ -79,23 +79,41 @@ def find_common_signers(db_path, n):
         except sqlite3.OperationalError:
             continue  # 跳过不包含Signer列的表
     
+    # 早期聪明钱列表
+    early_signers_list = []
     # 筛选并打印结果, 排序，len(table_list) 越大越靠前
     for signer, table_list in sorted(signer_tables.items(), key=lambda x: len(x[1]), reverse=True):
         if len(table_list) >= n:
             # 对齐输出
             max_len = max(len(signer) for signer in signer_tables.keys())
             print(f"{signer.ljust(max_len)}: {[len(table_list)]} {', '.join(table_list)}")
-
+            # 缓存早期聪明钱
+            early_signers_list.append((signer, len(table_list)))
+    print("\033[1;36m====================\033[0m")  # 青色高亮打印
+    # 删除第一个元素
+    early_signers_list.pop(0)
+    # 打印早期聪明钱总数
+    print(f"\033[1;32m早期聪明钱总数: {len(early_signers_list)}\033[0m")
+    print("\033[1;36m====================\033[0m")  # 青色高亮打印
+    # 打印早期聪明钱列表
+    for i, signer in enumerate(early_signers_list, start=1):
+        # 只输出序号
+        print(f"{signer[0]}{seperator}{i}")
+        # 输出序号和重复的表数
+        # print(f"{signer[0]}{seperator}{i}-{signer[1]}")
     conn.close()
 
 # 使用示例
 db_name = "DNF.db"
+seperator = ","
 base_path = os.path.dirname(os.path.abspath(__file__))
 db_path = os.path.join(base_path, 'database', db_name)
 
 # 打印所有表名以及输出对应的时间范围
 display_all_table(db_path)
 
-find_common_signers(db_path, 3)  # 查找至少2个表中共同的Signer
+# 查找至少n个表中共同的Signer
+find_common_signers(db_path, 5, seperator)
+
 
 
