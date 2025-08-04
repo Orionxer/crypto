@@ -115,6 +115,6 @@ deploy:
   type: git
   repo: https://github.com/Orionxer/crypto
   branch: gh-pages
-  message: hexo deploy default commit
+  message: 🤖 hexo deploy default commit
   author: Orionxer
   email: orionxer@gmail.com
