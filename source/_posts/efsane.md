@@ -46,12 +46,10 @@ IW5WR2
 ### 3.1 BTC
 #### Topic Title
 ```txt
-Will Bitcoin (BTC) reach or exceed $115,000 at exactly 23:59 UTC on August 3, 2025?
+Will Bitcoin (BTC/USDT) be at or above $115,000 at exactly 00:00 UTC on August 11, 2025?
 ```
 #### Participation Rules Description
 ```txt
-💵💵💵💵💵💵💵💵💵💵
--------------------------
 ✅ YES: Price ≥ $115,000
 ❌ NO : Price < $115,000
 📊 Data Source: The high price from the 1-minute candlestick of BTC/USDT on Binance.
@@ -60,29 +58,26 @@ Will Bitcoin (BTC) reach or exceed $115,000 at exactly 23:59 UTC on August 3, 20
 ### 3.2 ETH
 #### Topic Title
 ```txt
-Will Ethereum (ETH) reach or exceed $3,500 at 00:00 UTC on 4 August, 2025?
+Will Ethereum (ETH/USDT) be at or above $4,300 at exactly 00:00 UTC on August 11, 2025?
 ```
 #### Participation Rules Description
 ```txt
-💵💵💵💵💵💵💵💵💵💵
--------------------------
-✅ YES: Price ≥ $3,500
-❌ NO : Price < $3,500
-📊 Data Source: The high price from the 1-minute candlestick of BTC/USDT on Binance.
+✅ YES: Price ≥ $4,300
+❌ NO : Price < $4,300
+📊 Data Source: The high price from the 1-minute candlestick of ETH/USDT on Binance.
 ```
 
 ### 3.3 SOL
 #### Topic Title
 ```txt
-Will Solana (SOL) reach or exceed $175 at 00:00 UTC on 4 August, 2025?
+Will Solana (SOL/USDT) be at or above $185 at exactly 00:00 UTC on August 11, 2025?
+
 ```
 #### Participation Rules Description
 ```txt
-💵💵💵💵💵💵💵💵💵💵
--------------------------
-✅ YES: Price ≥ $175
-❌ NO : Price < $175
-📊 Data Source: The high price from the 1-minute candlestick of BTC/USDT on Binance.
+✅ YES: Price ≥ $185
+❌ NO : Price < $185
+📊 Data Source: The high price from the 1-minute candlestick of SOL/USDT on Binance.
 ```
 
 ### 3.4 图表Logo
